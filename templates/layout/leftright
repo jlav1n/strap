@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="[either]__MV_HTTP_CHARSET__[or]iso-8859-1[/either]">	
+	<title>[scratch page_title]</title>
+	{{CSS}}
+	<meta name="viewport" content="initial-scale=1.0, width=device-width">
+	[scratch meta_header]
+</head>
+<body>
+
+<div class="container-fluid">
+	<div class="row-fluid">
+	    <a href="[area]"><img src="__LOGO__" alt="__COMPANY__"></a>
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="container">
+					{{TOP_MENU}}
+					{{TOP_SEARCH}}
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row-fluid ic_contain">
+
+		<div class="span3 lrcol1">
+		{{LEFT}}
+		</div>
+
+		<div class="span6 lrcol2">
+			{{TOP?}}
+				{{TOP}}
+			{{/TOP?}}
+			{{:DEFAULT}}
+			{{BOTTOM?}}
+				<br>
+				{{BOTTOM}}
+			{{/BOTTOM?}}
+		</div>
+
+		<div class="span3 lrcol3">
+			{{RIGHT}}
+		</div>
+
+	</div>
+	<div class="row-fluid">
+		{{COPYRIGHT}}
+	</div>
+</div>
+
+{{JS_BOTTOM}}
+[scratch meta_footer]
+</body>
+</html>

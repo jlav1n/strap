@@ -1,0 +1,40 @@
+[perl tables="products country"]
+
+	## This section sets the shipping, handling, taxing, and payment
+	## initializations, as well as browser check
+
+	# Initialize country:
+	$Values->{country} ||= $Variable->{SHIP_DEFAULT_COUNTRY};
+
+	# Initialize shipmode:
+	if ($Values->{mv_shipmode} eq 'default') {
+		my $shipmode = $Tag->data('country', 'shipmodes', $Values->{country});
+		$shipmode =~ s/^\s+//;
+		$shipmode =~ s/\s.*//;
+		$Values->{mv_shipmode} = $shipmode;
+	}
+
+	## Start with payment mode if none there
+	$Values->{mv_order_profile} ||= $Variable->{DEFAULT_PAYMENT_MODE}
+								||'credit_card';
+
+	## Check for COD order
+
+	my @handling;
+
+	if($Values->{mv_handling}) {
+			@handling = split /[\s,\0]+/, $Values->{mv_handling};
+			@handling = grep /\S/ && $_ ne 'cod', @handling;
+			$Values->{mv_handling} = join " ", @handling;
+	}
+
+	if($Values->{mv_order_profile} eq 'cod') {
+			push @handling, 'cod';
+	}
+
+	if(@handling) {
+			$Values->{mv_handling} = join " ", @handling;
+	}
+#Debug("mv_handling=$Values->{mv_handling}");
+	return;
+[/perl]

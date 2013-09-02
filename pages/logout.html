@@ -1,0 +1,32 @@
+[userdb function=logout clear-cookie="MV_PASSWORD" clear="[if cgi keep_values]0[else]1[/else][/if]" hide=1]
+
+[comment]
+ui_template: Yes
+ui_template_name: leftonly
+[/comment]
+
+[control reset=1]
+
+[control-set]
+[component]search_box_small[/component]
+[/control-set]
+
+[control-set]
+[component]cart_tiny[/component]
+[/control-set]
+
+[control-set]
+[component]product_tree[/component]
+[/control-set]
+
+[control reset=1]
+[tmp page_title]__COMPANY__ -- [L]Log Out[/L][/tmp]
+
+@_TOP_@
+<!-- BEGIN CONTENT -->
+
+<p>[L]You have been logged out.[/L]</p>
+<p>[L]Thank you for visiting.[/L]</p>
+
+<!-- END CONTENT -->
+@_BOTTOM_@

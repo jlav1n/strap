@@ -1,0 +1,5 @@
+[comment]
+[newmenu name="[either][scratch menu_bar][or]catalog/top[/either]" timed=1][/newmenu]
+[/comment]
+[bootmenu name="[either][scratch menu_bar][or]catalog/top[/either]"][/bootmenu]
+

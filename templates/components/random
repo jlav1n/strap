@@ -1,0 +1,73 @@
+[comment]
+ui_name: random
+ui_type: component
+ui_class: content, vertical
+ui_group: promotion
+ui_label: Random items
+
+matches:
+	label: Number to show
+	options: 1,2*,3,4,5,6,7,8,9,10
+	type: select
+
+pool:
+	help: Controls now many items will be returned and randomized, always from the beginning of the database/text file
+	label: Number to select from
+	options: 100,1000*,10000
+	type: select
+
+cols:
+	label: Columns
+	options: 1*,2,3,4
+	type: select
+
+banner:
+	label: Banner for top box
+	type: text
+	width: 40
+
+buttons:
+	label: Display buy/info buttons
+	type: yesno
+
+
+[/comment]
+<!-- BEGIN COMPONENT [control component random] -->
+    <table class="well table table-condensed table-bordered">
+		<caption>
+		<h3>[control name=banner default="[L]Random Display Component[/L]"]</b>
+		</caption>
+		[table-organize embed=1 pretty=1 cols="[control cols 2]"]
+		[loop
+				random="[control matches 2]"
+				search="
+						fi=products
+						st=db
+						ra=yes
+						ml=[control pool 1000]
+					"]
+			<TD class="txtc" style="position:relative">
+				
+				[if-loop-field thumb]    
+					<div style="position:relative;top:0px;left:0px">
+						<a href="[area [loop-code]]">			 	      
+							[loop-description]<br>
+							<img border="0" src="thumb/[loop-field thumb]"><br>
+						</a>
+						[L]Our Price[/L]: <B>[loop-price]</B>
+					[if type=explicit condition="[control buttons]"]
+						<div style="position:relative;bottom:2px;margin-top:5px;">
+							[b-link href=order form=|mv_order_item=[loop-code]| class="btn btn-mini btn-buy"]BUY NOW[/b-link]
+							<br>
+							[b-link href=|[loop-code]| class="btn btn-mini btn-info"][L]MORE INFO[/L][/b-link]
+						</div>
+					[/if]
+					</div>
+				[/if-loop-field]	           
+			</TD>
+		[/loop]
+		[/table-organize]
+    </table>       
+  
+
+<!-- END COMPONENT [control component random] -->

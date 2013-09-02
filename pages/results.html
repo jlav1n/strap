@@ -1,0 +1,55 @@
+[comment]
+ui_page: results.html
+ui_type: page
+ui_name: results.html
+ui_page_template: leftright
+ui_source: pages/results.html
+ui_template: Yes
+ui_template_name: leftright
+[/comment]
+
+[tmp page_title]__COMPANY__ -- [L]Search Results[/L][/tmp]
+[tmpn members_only][/tmpn]
+
+[calc]
+	$mc = $Values->{mv_search_match_count};
+	return;
+[/calc]
+
+[control reset=1]
+[control-set]
+	[component]search_box_small[/component]
+	[output]left[/output]
+[/control-set]
+[control-set]
+	[component]product_tree[/component]
+	[show_categories]1[/show_categories]
+	[output]left[/output]
+[/control-set]
+[control-set]
+	[component][/component]
+[/control-set]
+[control-set]
+	[component]results_buylist[/component]
+[/control-set]
+[control-set]
+	[component]cross[/component]
+	[banner][L]Also see...[/L][/banner]
+	[cols]2[/cols]
+	[size]2[/size]
+	[output]bottom[/output]
+[/control-set]
+[control-set]
+	[component]random[/component]
+	[banner][L]Specials[/L][/banner]
+	[cols]1[/cols]
+	[size]3[/size]
+	[output]right[/output]
+[/control-set]
+[control reset=1]
+
+@_TOP_@
+<!-- BEGIN CONTENT -->
+
+<!-- END CONTENT -->
+@_BOTTOM_@

@@ -1,0 +1,64 @@
+[comment]
+ui_name: product_tree
+ui_type: component
+ui_class: vertical
+ui_group: Navigation
+ui_label: Products Tree
+
+show_categories:
+	label: Show categories?
+	type: yesno
+
+[/comment]
+
+<!-- BEGIN COMPONENT [control component product_tree] -->
+[comment]
+[timed-build file="timed/product_tree" login=1 force=1 minutes=1440 if="[if !variable INDEV]1[/if]"]
+[/comment]
+<div class=row-fluid>
+[if control show_categories]
+
+<ul class="nav nav-list pgroup" id="nav_menu">
+<br>
+	<h4>Product List</h4>
+[query list=1 sql="SELECT prod_group, category FROM products GROUP BY prod_group, category"]
+	[sql-change grp][condition][sql-code][/condition]
+		[sql-alternate except_first]	</ul>
+		</li>[/sql-alternate]
+		<li>[tmp grp][sql-filter string2uri][sql-code][/sql-filter][/tmp]
+			<a href="[area href="[scratch grp]"]">[sql-code]</a>
+			<span data-parent="#nav_menu" data-toggle="collapse" data-target="#collapse[scratch grp]" class="showcursor">
+				[if-sql-param category]...[else]&nbsp;&nbsp;[/else][/if-sql-param]
+			</span>
+			<ul class="nav nav-list collapse" id="collapse[scratch grp]">
+	[/sql-change grp]
+	[if-sql-param category]
+				<li class="cat_li">
+					<a href="[area href="[scratch grp]/[sql-filter string2uri][sql-pos 1][/sql-filter]"]">[sql-pos 1]</a>
+				</li>
+	[/if-sql-param]
+	[sql-alternate last_only]
+			</ul>
+		</li>
+	[/sql-alternate]
+[/query]
+</ul>
+
+[else]
+
+<ul class="nav nav-list">
+<br>
+	<h4>Product List</h4>
+[query list=1 sql="SELECT prod_group FROM products GROUP BY prod_group"]
+<li><a href="[area href="[sql-filter string2uri][sql-code][/sql-filter]"]">[sql-code]</a></li>[/query]
+</ul>
+
+[/else]
+[/if]
+
+<p>&nbsp;</p>
+</div>
+[comment]
+[/timed-build]
+[/comment]
+<!-- END COMPONENT [control component product_tree] -->

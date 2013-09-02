@@ -1,0 +1,12 @@
+<script src="[var JQUERY_LATEST]"></script>
+<script src="[var WWW_DIR]/bootstrap/js/bootstrap.min.js"></script>
+
+[if var GOOGLE_ANL_ID]
+<!-- Google Analytics: set GOOGLE_ANL_ID to be your site's ID. -->
+<script>
+	var _gaq=[['_setAccount','[var GOOGLE_ANL_ID]'],['_trackPageview']];
+	(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+	g.src='//www.google-analytics.com/ga.js';
+	s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+[/if]

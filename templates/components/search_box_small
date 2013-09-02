@@ -1,0 +1,33 @@
+[comment]
+ui_name: search_box_small
+ui_type: component
+ui_class: vertical
+ui_group: search
+ui_label: Small search box
+
+matches:
+	help: Matches to return to page
+	options: 1,2,3,5,10*,20,25,50,100
+	type: select
+
+[/comment]
+
+	<div class="row-fluid">
+	<br>
+      <form class="well form-search" action="[area search]" method=get>
+      [form-session-id]
+		<input type="hidden" name="mp" value="s">
+	    <div class="input-prepend">
+	      <button type="submit" class="btn">[L]SEARCH[/L]</button>	      
+	      <input type="search" class="search-query span8" NAME="s">
+	    </div>
+	    <div class="help-below">
+	           <a href="[area advancedsearch]">
+			   	[L]Advanced Search[/L]
+			</a>
+	    </div>
+      </form>
+	</div>
+
+<!-- END COMPONENT [control component search_box_small] -->
+
