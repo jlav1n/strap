@@ -232,15 +232,9 @@
 	[/if-item-field]
 
 	[if-item-param pay_cert_code]
-		[tmp gc_url][area href="pay_cert/redeem"
-						  no_session_id=1
-						  no_count=1
-						  form="
-						  	pay_cert_code=[item-param pay_cert_code]
-						  	pay_cert_check=[item-param pay_cert_check]
-						  "][/tmp]
-		<br>Give this URL to pass on the gift certificate:
-				<A href="[scratch gc_url]">[scratch gc_url]</A>
+        [tmp gc_surl][area href="cert/[item-param pay_cert_code]/[item-param pay_cert_check]" no_session_id=1 no_count=1][/tmp]
+		<br><b style="color:red">Give this URL to pass on the gift certificate:</b>
+				<a href="[scratch gc_surl]">[scratch gc_surl]</a>
 	[/if-item-param]
 
 	[if-item-field download]
@@ -253,10 +247,10 @@
 	[/if-item-modifier]
 	</td>
 	<td align=right valign=top>
-		[item-price]
+		[item-discount-price]
 	</td>
 	<td align=right valign=top>
-		[item-subtotal]
+		[item-discount-subtotal]
 	</td>
 [/item-list]
 <tr>

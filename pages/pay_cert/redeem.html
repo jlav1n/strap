@@ -9,7 +9,7 @@
 [/control-set]
 [control reset=1]
 
-@_LEFTRIGHT_TOP_@
+@_TOP_@
 <!-- BEGIN CONTENT -->
 
 <h1>Gift Certificate Redemption</h1>
@@ -37,7 +37,7 @@
 		if($expiry < $now) {
 			$expiry =~ s/(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})/$1-$2-$3 $4:$5:$6/;
 			my $exp = $Tag->filter('convert_date', $expiry);
-			push @cert_msgs, "Sorry, certificate $_ expired $exp.";
+			push @cert_msgs, "Sorry, certificate $_ expired $exp";
 			delete $certs[$i];
 		}
 		## check check_value for posted cert
@@ -55,7 +55,7 @@
 						value => $Scratch->{pay_cert_code},
 						expire => $Variable->{GIFT_CERT_PERIOD},
 					});
-	$Tag->tmp('cert_msg', join(', and: ',@cert_msgs));
+	$Tag->tmp('cert_msg', join(', and: ',@cert_msgs) . '.') if scalar @cert_msgs;
 	return;
 [/perl]
 	<br>
@@ -68,9 +68,9 @@
 		[/loop]
 		</ul>
 		<br>
-		[if scratch cert_msg]<p>[scratch cert_msg]. Please contact the provider of your gift or <a href="[area contact]">__COMPANY__</a>.</p>[/if]
+		[if scratch cert_msg]<p>[scratch cert_msg] Please contact the provider of your gift or <a href="[area contact]">__COMPANY__</a>.</p>[/if]
 	[else]
-		<p>Bad certificate code. [scratch cert_msg]. Please contact the provider of your gift or <a href="[area contact]">__COMPANY__</a>.</p>
+		<p>Bad certificate code. [scratch cert_msg] Please contact the provider of your gift or <a href="[area contact]">__COMPANY__</a>.</p>
 	[/else]
 	[/if]
 
@@ -78,4 +78,4 @@
 [/if]
 
 <!-- END CONTENT -->
-@_LEFTRIGHT_BOTTOM_@
+@_BOTTOM_@

@@ -49,7 +49,10 @@ Qty   Item No.    Description                            Price       Extension
 
 [column width=14 align=right gutter=1][item-discount-price display=text][/column]   
 [column width=15 align=right gutter=0][item-discount-subtotal display=text][/column]
-[/row]
+[/row][if-item-param pay_cert_code]
+[row 120]
+	[column width=82]URL:[area href="cert/[item-param pay_cert_code]/[item-param pay_cert_check]" no_session_id=1 no_count=1][/column]
+[/row][/if-item-param]
 [if-item-field option_type][row 82]
     [column width=5 gutter=1 align=right][/column]
     [column width=12 gutter=1] [item-code] [/column]

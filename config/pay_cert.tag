@@ -91,7 +91,7 @@ sub {
 			$expire_date = POSIX::strftime('%Y%m%d%H%M%S', @date_expires);
 		}
 
-#$log->("generated code=$code, expires=$opt->{expires} date_expires=$expire_date ");
+$log->("generated code=$code, expires=$opt->{expires} date_expires=$expire_date ");
 		my $check = int rand(10);
 		$check .= int(rand(10)) while length($check) < 4;
 #$log->("generated check=$check");

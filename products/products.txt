@@ -38,3 +38,4 @@ os28111	Hedge Shears	Hedge Shears		A perfect fit for all users these 10" hedge s
 os28112	Garden Shovel	Garden Shovel		The blade on this garden shovel is 7" inches long making it ideal for the potting enthusiast.  Ergonomic design makes for ease of use with this tool.	os28112_b.gif	os28112.gif	13.99	10	Hand Tools	Shovels		1	2												
 os28113	The Claw Hand Rake	The Claw Hand Rake		Extend the reach of your potting with "The Claw".  Perfect for agitating soil in the most difficult places this 3 tine tool is ideal for every gardener.  Small and Large sizes available.	os28113_b.gif	os28113.gif	14.99	12	Hand Tools	Picks & Hatchets		1	1												
 os29000	3' Step Ladder	3' Step Ladder			os29000_b.gif	os29000.gif	44.99	22.5	Ladders	Step Stools															
+giftcert	Gift Certificate			Valid for 1 year.			10.00		Other			1	0					1							

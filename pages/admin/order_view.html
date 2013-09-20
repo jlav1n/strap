@@ -355,6 +355,12 @@
 <BR>
 [L]Options[/L]: [sql-param options]
 [/if-sql-param]
+
+[if-sql-param sku eq giftcert]
+	<br>
+	<br>
+	<a href="__SAMPLEURL____CGI_URL__/cert/[data table=pay_certs col=code key="[loop-code]" foreign=order_number]/[data table=pay_certs col=check_value key="[loop-code]" foreign=order_number]">Gift certificate redemption link</a>
+[/if-sql-param]
 			   </td>
                <td align=right style="padding: 5px">[sql-param quantity]</td>
                <td align=right style="padding: 5px">[currency][sql-param price][/currency]</td>
