@@ -115,6 +115,7 @@ Edit address	Edit address	Adresse ändern		Adres wijzigen	Izmijeni adresu	Spreme
 Email	Email	E-Mail		Email	Email	Email
 e-mail	e-mail	E-Mail				
 Email Address	Email Address	E-Mailadresse		Emailadres	Elektronička pošta	Elektronska pošta
+E-mail address	E-mail address	E-Mailadresse		Emailadres	Elektronička pošta	Elektronska pošta
 Empty cart					Isprazni košaricu	Isprazni košarico
 Enter as customer	Enter as customer	Als Kunde eingeben/eintragen		Betreedt als klant	Ulaz kao kupac	Vhod kot kupec
 Errors	Errors	Fehler		Fouten	Greške	Napake
@@ -130,6 +131,7 @@ February		Februar	F&eacute;vrier	Februari	veljača	februar
 Finalize Order					Zaključak i predaja narudžbe	Zaključek in oddaja naročila
 First	First	Vorname		Eerste	Prvi	Prvi
 First Name	First Name	Vorname		Voornaam	Ime	Ime
+First name	First name	Vorname		Voornaam	Ime	Ime
 frac_digits	2	2	2	2	2	2
 Frequently Asked Questions	Frequently Asked Questions	Häufig gestellte Fragen		Veel gestelde vragen	Često postavljana pitanja	Pogosto zastavljana vprašanja
 Full words only					Samo cijele riječi	Samo cele besede
@@ -147,7 +149,7 @@ HTML Formatted (no wiki)	HTML Formatted (no wiki)	HMTL formatiert  			HTML forma
 ID sent by fastest available email method!	ID sent by fastest available email method!	Ihre ID erhalten Sie in wenigen Minuten per Email.		Uw klantnummergegevens zijn verzonden met de snelste beschikbare emailmethode!	ID poslan elektroničkom poštom.	ID poslan elektroničkom poštom.
 If different than above	If different than above	Falls anders als Oben		Indien anders dan hierboven	Ako je drukčiji od gore navedenog	Če je drugačno od zgoraj navedenega
 If you have an account with us, please login using the fields below. It is not required, but you can also %screate an account%s with us.	If you have an account with us, please login using the fields below. It is not required, but you can also %screate an account%s with us.	Wenn Sie bereits bereits bei uns registriert sind, loggen Sie sich unter Ihrem Kundennamen ein. Wenn Sie noch kein Kunde bei uns sind, können Sie sich hier registieren.		Als U een rekening bij ons hebt, kunt U zich aanmelden middels onderstaand formulier. Desgewenst kunt U ook een %snieuwe rekening%s aanmaken.	Ako već imate korisnički račun, molimo prijavite se. Iako nije obvezno, možete i %sotvoriti korisnički račun%s.	Če ste že uporabnik, prosimo prijavite se. Čeprav ni obvezno, lahko tudi odprete novi %suporabniški račun%s
-If you would like further information on constructing a store like this, please contact the Interchange Development Group	If you would like further information on constructing a store like this, please contact the Interchange Development Group	Bei Interesse am Aufbau eines eigenen Online-Shops wie diesem, wenden Sie sich an die Interchange Development Group.		Mocht u nadere informatie wensen over het bouwen van een winkel als deze, neem dan contact op met de Interchange Development Group	Ako želite dodatne informacije o izgradnji slučne trgovine, kontaktirajte Interchange Development Group	Če želite dodatne informacije o gradnji podobne trgovine, kontaktirajte Interchange Development Group
+If you would like further information on constructing a store like this, please contact Perusion	If you would like further information on constructing a store like this, please contact Perusion	Bei Interesse am Aufbau eines eigenen Online-Shops wie diesem, wenden Sie sich an Perusion.		Mocht u nadere informatie wensen over het bouwen van een winkel als deze, neem dan contact op met Perusion	Ako želite dodatne informacije o izgradnji slučne trgovine, kontaktirajte Perusion	Če želite dodatne informacije o gradnji podobne trgovine, kontaktirajte Perusion
 in	in	in     		in	u	v
 In fields					Po polju	Po polju
 In Stock	In Stock	Auf Lager		Op Voorraad	Dostupno	Na zalogi
@@ -171,6 +173,7 @@ Just complete enough to ensure one match.	Just complete enough to ensure one mat
 Language					Jezik	Jezik
 Last	Last	Letzte		Laatste	Zadnje	Zadnje
 Last Name	Last Name	Nachname		Achternaam	Prezime	Priimek
+Last name	Last name	Nachname		Achternaam	Prezime	Priimek
 Linkback URL	Linkback URL			Teruglink URL		
 Links that will help you to use this software	Links that will help you to use this software	Links, die Ihnen bei der Benutzung dieser Software behilflich sind.		Links die U behulpzaam kunnen zijn bij het gebruiken van deze software.	Poveznice koje će vam pomoći koristiti ovaj program	Povezave ki Vam lahko pomagajo pri uporabi tega programa
 Log In	Log In	Einloggen		Aanmelden	Prijava	Prijava
@@ -180,7 +183,9 @@ Log in as an affiliate	Log in as an affiliate	Verbundenes Netzwerk		Aanmelden al
 Log me in automatically (sets cookie)	Log me in automatically (sets cookie)	Automatischen Log-In aktivieren.   ("cookie" wird gepeichert). 		Meld mij automatisch aan (zet cookie)	Automatska prijava (postavi kolačić)	Samodejna prijava (nastavi piškotek)
 Log Out	Log Out	abmelden		Afmelden	Odjava	Odjava
 Log out	Log out	abmelden		Afmelden	Odjava	Odjava
+Logout	Logout	abmelden		Afmelden	Odjava	Odjava
 Log out and keep name/address					Odjavi se i zadrži ime/adresu	Odjavi se in obdrži ime/adreso
+Logout and keep name/address					Odjavi se i zadrži ime/adresu	Odjavi se in obdrži ime/adreso
 LOGIN_EXISTING					Ako već imate korisnički račun, prijavite se ovdje.	Če uporabniški račun že imate, prijavite se tukaj-
 LOGIN_NEW					Stvaranje korisničkog računa će Vam omogućiti brže naručivanje, kao i mogućnost provjere stanja narudžbi i pregledajte prošle kupovine.	Z ustvarjanjem uporabniškega računa boste hitreje oddajali naročila, preverjali stanje in pregledali zgodovino nakupov.
 Logo image	Logo image	Logo		Afbeelding logo	Logotip	Logotip
@@ -501,4 +506,4 @@ Your price	Your price	Ihr Preis		Uw prijs	Vaša cijena	Vaša cena
 Your request has been sent sucessfully.	Your request has been sent sucessfully.	Ihre Anfrage wurde erfolgreich übermittelt		Uw verzoek is met succes verzonden.	Vaš zahtjev je uspješno poslan.	Vaša zahteva je uspešno oddana.
 Your session information has been canceled.	Your session information has been canceled.	Die/Ihre (Bestell-)Informationen dieser Sitzung wurden gelöscht.				
 Zip Code	Zip Code	Postleitzahl		Postcode	Poštanski broj	Poštna številka
-Zip/Postal Code	Zip/Postal Code	PLZ		Postcode	Poštanski broj	Poštna št.
+ZIP/Postal Code	ZIP/Postal Code	PLZ		Postcode	Poštanski broj	Poštna št.

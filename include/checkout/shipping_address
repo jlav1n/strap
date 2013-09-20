@@ -7,7 +7,7 @@
 	<div class="alert alert-info"><a class="btn btn-info" href="[area href=login form=|destination=@@MV_PAGE@@|]">[msg arg.0='</a>' arg.1='<a href="[area href=new_account form=|destination=@@MV_PAGE@@|]">' arg.2='</a>']Login%s to pre-fill this information. Or, %screate an account%s with us (optional).[/msg]</div>
 [/else]
 [/if]
-<p class="text-info"><i>[msg arg.0='<b>' arg.1='</b>']We need the %sbold fields%s to process your order[/msg]</i></p>
+<p class="text-info"><i>[L]We need the <b>bold fields</b> to process your order[/L]</i></p>
 [/if]
 
 <div class="control-group">

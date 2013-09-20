@@ -57,9 +57,9 @@ buttons:
 						[L]Our Price[/L]: <B>[loop-price]</B>
 					[if type=explicit condition="[control buttons]"]
 						<div style="position:relative;bottom:2px;margin-top:5px;">
-							[b-link href=order form=|mv_order_item=[loop-code]| class="btn btn-mini btn-buy"]BUY NOW[/b-link]
+							[b-link href=order form=|mv_order_item=[loop-code]| class="btn btn-mini btn-buy"][L]BUY NOW[/L][/b-link]
 							<br>
-							[b-link href=|[loop-code]| class="btn btn-mini btn-info"][L]MORE INFO[/L][/b-link]
+							[b-link href=|[loop-code]| class="btn btn-mini btn-info"][L]More Info[/L][/b-link]
 						</div>
 					[/if]
 					</div>

@@ -5,7 +5,7 @@
 	  [if session browser =~ /MSIE/i]
 	  <input name="s" type="text" class="search-query" value="Search" onfocus="this.value=''">
 	  [else]
-	  <input name="s" type="search" class="search-query" placeholder="Search">
+	  <input name="s" type="search" class="search-query" placeholder="[L]Search[/L]">
 	  [/else]
 	  [/if]
 	  </form>
