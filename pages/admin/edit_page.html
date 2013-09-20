@@ -6,8 +6,8 @@
 [set pagename][/set]
 [set pagedata][/set]
 
-[if !scratch dealer]
-[error name=edit_permission set="Not authorized to edit pages, not dealer=[scratch dealer]."]
+[if !session admin]
+[error name=edit_permission set="Not authorized to edit pages, not admin."]
 [bounce page=admin/edit_error]
 [/if]
 

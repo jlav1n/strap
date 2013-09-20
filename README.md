@@ -58,6 +58,15 @@ Some of the changes include:
 * [bootmenu] tag to show menus using Bootstrap-compatible styles. No
   more messy inline Javascript for dropdown menus.
 
+* There may be some concern over the no-hover dropdown menu, which is
+  the Bootstrap standard -- the user must click to see the dropdown, and
+  the parent item's link itself is not clickable. Since Bootstrap is
+  designed for mobile devices as well, and there is no "hover" state on
+  a mobile device, it has to be this way. Feel free to change the bind
+  event on the dropdowns to a "hover" instead of a "click", if you don't
+  need to support mobile. Note that double-click is not an option, since
+  you can't bind both "click" and "dblclick" events on the same element.
+
 * Product Groups and Categories use the "ncheck" subroutine in
   catalog.cfg to allow pretty URLs, such as /Tools/Hand-Saws, rather
   than scan/search URLs.
@@ -73,6 +82,8 @@ Some of the changes include:
   parameter, for easy tracking via Google Analytics.
 
 * Old product forum has been removed.
+
+* Survey function has been removed.
 
 * Use of UserDB's "indirect_login" by default, to allow emails as
   usernames (uses a new 'usernick' column).
@@ -118,7 +129,9 @@ Some of the changes include:
 * Admin "Content" tab is hidden, since old Content Editor not really
   supported anymore.
 
-* Survey function has been removed.
+* Basic page editor for Admin users is available to pages that include:
+  [tmpn editable]1[/tmpn]. Login to Admin, then browse page. "Edit page
+  data" button will be visible in lower-right corner.
 
 * Page to reconfigure catalog: pages/test/recon.html
 
