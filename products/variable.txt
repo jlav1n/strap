@@ -31,7 +31,7 @@ ENTRY_CREDIT_CARDS_ACCEPTED	visa mc amex discover  	Payment
 ENTRY_POSTAL_ACCEPTED	0	Payment
 ENTRY_PO_ACCEPTED	1	Payment
 FAX	(765) 555-9999	Company
-GIFT_CERT_PERIOD	5 year	Payment
+GIFT_CERT_PERIOD	1 year	Payment
 GOOGLE_ANL_ID		Google
 IC_DIR	__MVC_VENDROOT__	Admin Control
 IMAGE_DIR	__MVC_IMAGEURL__	Directories and Paths
