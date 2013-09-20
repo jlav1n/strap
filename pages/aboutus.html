@@ -1,9 +1,3 @@
-[comment]
-ui_template: Yes
-ui_template_name: leftonly
-[/comment]
-
-[tmp page_banner][L]About Us[/L][/tmp]
 [tmp page_title]__COMPANY__ -- [L]About Us[/L][/tmp]
 [tmp display_class]leftonly[/tmp]
 
@@ -38,32 +32,25 @@ ui_template_name: leftonly
 [control reset=1]
 
 @_TOP_@
-
 <!-- BEGIN CONTENT -->
 
-<br>
-<table class="table">
-<tr>
-  <td>
-	<h1>
-	[L]About Us[/L]: <b>__COMPANY__</b>!
-	</h1>
+<h1>[L]About Us[/L]: <b>__COMPANY__</b>!</h1>
 
 	<p>
-	[msg arg.0="[page contact]" arg.1="</a>"]Please %scontact us%s if you have any questions for us.[/msg]<br>
+	[msg arg.0="<a href='[page contact]'>" arg.1="</a>"]Please %scontact us%s if you have any questions for us.[/msg]<br>
 	</p>
 
 	<p>
-	[msg arg.0="<a href='@_INTERCHANGE_URL_@'>" arg.1="</a>"]This is a demo store. If you would like further information on how you can build a store or how you can get custom services, please %svisit our web site%s.[/msg]
+	[msg arg.0="<a href='http://www.perusion.com/'>" arg.1="</a>"]This is a demo store. If you would like further information on how you can build a store or how you can get custom services, please %svisit our web site%s.[/msg]
 	</p>
 
     <p>
-	[L]Or send an e-mail to[/L]: <a href="mailto:@_INTERCHANGE_EMAIL_@">@_INTERCHANGE_EMAIL_@</a>.
-	<br><br></p>
-  </td>
-</tr>
-</table>
+	[L]Or send an e-mail to[/L]: <a href="mailto:sales@perusion.com">sales@perusion.com</a>.
+	</p>
+
+	<p>
+	[msg arg.0="<a href='@_INTERCHANGE_URL_@'>" arg.1="</a>"]Catalog based on Interchange Standard template, as distributed with %sInterchange%s.[/msg]
+	</p>
 
 <!-- END CONTENT -->
-
 @_BOTTOM_@

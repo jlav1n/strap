@@ -10,7 +10,6 @@ __ADL_PAGE__
 [comment] Clear these puppies [/comment][calc]
     for (qw/
                 page_title
-                page_banner
                 display_class
         /) { delete $Scratch->{$_} }
     return;

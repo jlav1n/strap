@@ -1,11 +1,4 @@
-[comment]
-ui_template: Yes
-ui_template_name: leftright
-[/comment]
-
 [set page_title]__COMPANY__ -- [L]Advanced Search[/L][/set]
-[set page_banner][L]Advanced Search[/L][/set]
-[set bgcolor]#FFFFFF[/set]
 
 [control reset=1]
 
@@ -42,18 +35,11 @@ ui_template_name: leftright
 [control reset=1]
 
 @_TOP_@
-
 <!-- BEGIN CONTENT -->
 
 [tmp matchlimit]10[/tmp]
 
-<table width="100%" border="0">
-<tr>
-<td>
-<br>
-
 <h1>[L]Advanced Search[/L]</h1>
-<br>
 
 <p>
 <form action="[area search]" method=post>
@@ -200,11 +186,5 @@ ui_template_name: leftright
 </table>
 </form>
 
-
-</td>
-</tr>
-</table>
-
 <!-- END CONTENT -->
-
 @_BOTTOM_@
