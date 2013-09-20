@@ -1,6 +1,7 @@
 [tmp page_title]Password Reset[/tmp]
+[tmpn display_class]noleft[/tmpn]
 
-@_NOLEFT_TOP_@
+@_TOP_@
 <!-- BEGIN CONTENT -->
 
 <h1>Password Reset</h1>
@@ -71,10 +72,10 @@ Log(qq{ pass for $uid was $old_pw, now $cry_pw } );
 		password_verify=match password The specified passwords do not match.
 	[/set]
 	[if session failure]
-		<b class=mv_contrast>[calc] delete $Session->{failure}[/calc]</b>
+		<div class="alert alert-error">[calc] delete $Session->{failure}[/calc]</div>
 	[/if]
-	[error auto=1 show_var=0 class="mv_contrast" style="font-weight:bold"]
-	<form action="[process href=@@MV_PAGE@@ secure=1]" method=post>
+	[error auto=1 show_var=0 class="unstyled alert alert-error"]
+	<form action="[process href=@@MV_PAGE@@ secure=1]" method="POST" class="form-horizontal">
 	<fieldset>
 		<legend>Thank you for verifying your email address. You must now change your password.</legend>
 		[form-session-id]
@@ -83,20 +84,22 @@ Log(qq{ pass for $uid was $old_pw, now $cry_pw } );
 		<input type=hidden name=mv_form_profile value="check_pass">
 		<input type=hidden name=mv_successpage  value="member/service">
 		<input type=hidden name=u               value="[cgi u]">
-		<table>
-		<tr>
-		  <td align=right class="contentbar2"> <label for="pass">New Password</label> </td>
-		  <td class="contentbar2"> <input type=password name=password value="" id=pass> </td>
-		</tr>
-		<tr>
-		  <td align=right class="contentbar2"> <label for="verify">Verify</label> </td>
-		  <td class="contentbar2"> <input type=password name=password_verify value="" id=verify> </td>
-		</tr>
-		<tr>
-		  <td>&nbsp;</td>
-		  <td class="contentbar1"> <input type="submit" value="Change password"> </td>
-		</tr>
-		</table>
+
+		<div class="control-group">
+			<label for="pass" class="control-label">New Password</label>
+			<div class="controls">
+				<input type=password name=password id=pass value="" autocomplete="off">
+			</div>
+		</div>
+		<div class="control-group">
+			<label for="verify" class="control-label">Verify</label>
+			<div class="controls">
+				<input type=password name=password_verify id=verify value="" autocomplete="off" oncopy="return false" onpaste="return false" oncut="return false">
+			</div>
+		</div>
+		<div class="form-actions">
+			<input type="submit" value="[L]Change password[/L]" class="btn btn-primary">
+		</div>
 	</fieldset>
 	</form>
 
@@ -109,4 +112,4 @@ Log(qq{ pass for $uid was $old_pw, now $cry_pw } );
 [/if]
 
 <!-- END CONTENT -->
-@_NOLEFT_BOTTOM_@
+@_BOTTOM_@

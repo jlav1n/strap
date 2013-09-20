@@ -1,9 +1,5 @@
-[comment]
-ui_template: Yes
-ui_template_name: noleft
-[/comment]
-
 [tmp page_title]__COMPANY__ -- [L]Edit Page Content[/L][/tmp]
+[tmpn display_class]noleft[/tmpn]
 
 [set bounce_error][/set]
 [set bounce_success][/set]
@@ -97,19 +93,17 @@ ui_template_name: noleft
 [bounce page=admin/edit_error if="[scratch bounce_error]"]
 [bounce page="[scratch bounce_page]" if="[scratch bounce_success]"]
 
-@_NOLEFT_TOP_@
-
+@_TOP_@
 <!-- BEGIN CONTENT -->
 
 <form action="[process href=@@MV_PAGE@@]" method=POST NAME=edit_page>
 [form-session-id]
 <input type=hidden name=page_edit value="1">
 <input type=hidden name=page_name value="[scratch pagename]">
-[display type=textarea width=80 height=50 name=page_data value="[scratch pagedata]"]
+[display type=textarea height=30 name=page_data value="[scratch pagedata]" class=span12]
 <br>
-<input type=submit value="Change">
+<input type=submit value="Change" class="btn">
 </form>
 
 <!-- END CONTENT -->
-
-@_NOLEFT_BOTTOM_@
+@_BOTTOM_@
