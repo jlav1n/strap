@@ -23,15 +23,15 @@
 		if($CGI->{k} eq substr($hmac, 0, 20)) {
 			$Scratch->{key_matches} = 1;
 			## reset password and set expiration, just in case they don't change pwd now; invalidates key (increases mod_time)
-			my $new_pw = int( rand 100000 );
+			my $new_pw;
+			for(1 .. 4) { $new_pw .= int(rand(10)); }
 			my $cry_pw = $new_pw;
-			my $salt = $Tag->random_string(2);
 			if( $Config->{UserDB}{crypt} ) {
-				$cry_pw = $Tag->userdb('do_crypt', { $new_pw, $salt, no_open => 1, no_login => 1, } );
+				$cry_pw = $Tag->crypt($new_pw);
 			}
 			my $expire_pass = $Tag->time({ body => '%Y%m%d%H%M%S', adjust => '1 days', });
 			$db->set_slice($uid, [qw/password expiration/], [$cry_pw, $expire_pass]);
-Log(qq{ pass for $uid was $old_pw, now $new_pw } );
+Log(qq{ pass for $uid was $old_pw, now $cry_pw } );
 			$Scratch->{pwd} = $new_pw;
 			$Scratch->{email} = $email;
 		}

@@ -77,13 +77,9 @@ Some of the changes include:
 * Use of UserDB's "indirect_login" by default, to allow emails as
   usernames (uses a new 'usernick' column).
 
-* Uses UserDB crypted passwords by default. (The default users in
-  userdb.txt won't work, unless you edit their passwords from the
-  Admin, so they are saved as encrypted.)
-
-* Password Reset page no longer emails password (impossible with crypted
-  passwords). Now sends a basic encoded link to reset the password,
-  which expires in 1 day.
+* Password Reset page no longer emails password (bad practice). Now
+  sends a basic encoded link to reset the password, which expires in 1
+  day. Requires installation of Bundle::Interchange CPAN module.
 
 * Checkout pages have a ton of clean up, and improved with user-
   experience guidelines. No more "old_browser" checks, nor *_multi
