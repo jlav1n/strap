@@ -34,21 +34,21 @@ mv_nextpage=ord/payment
 <form action="[area href="ord/finalize" secure=1]" method="POST">
 <fieldset><legend>[L]Shipping selection[/L]</legend>
 [form-session-id]
-<input type=hidden NAME=mv_action        value=return>
-<input type=hidden NAME=mv_nextpage      value="ord/finalize">
+<input type=hidden name=mv_action        value=return>
+<input type=hidden name=mv_nextpage      value="ord/finalize">
 <input type=hidden name=mv_form_profile  value="Check_shipmode">
 <input type=hidden name=mv_click         value="Jump to paymode">
 
-	<p class="text-info">[L]Shipping weight[/L]: [weight hide=1][scratch total_weight] lbs</p>
+	<p class="text-info">[L]Shipping weight[/L]: [scratch total_weight] lbs</p>
 
 [tmp tmp_shipmodes][shipping possible=1][/tmp]
 
-[seti ship_options][filter op="strip line2options" interpolate=1]
+<!-- 
 [loop list="[scratch tmp_shipmodes]"]
 [set num][loop-increment][/set]
 [loop-code]=[shipping-desc mode="[loop-code]"] ([shipping mode="[loop-code]"])
 [/loop]
-[/filter][/seti]
+-->
 
 [if !scratch total_weight]
 	[set num]0[/set]
@@ -66,7 +66,7 @@ mv_nextpage=ord/payment
 [/else]
 [/if]
 
-	<!-- options=[scratch ship_options] -->
+	<!-- total_weight=[scratch total_weight], num=[scratch num] -->
 	[shipping mode="[scratch tmp_shipmodes]" label=1 format='<label class=radio for="%M"><input type=radio name=mv_shipmode id="%M" value="%M"%C>%D (%F)</label>']
 
 	<div class="form-actions">
@@ -85,7 +85,20 @@ mv_nextpage=ord/payment
 			value="[L]Back[/L]"
 			>
 		<input type=submit value="[L]Continue checkout[/L]" class="btn btn-primary">
-		[calc]delete $Session->{ship_message};return;[/calc]
+
+		[calcn]
+			return unless my $sm = $Session->{ship_message};
+			my %msgs;
+			for(split /\./, $sm) {
+				next if /^No match/;
+				$msgs{$_} = 1;
+			}
+			$Session->{ship_message} = join '<br>', keys %msgs;
+			return;
+		[/calcn]
+		[if session ship_message]
+			<div style="margin:1em 0 0" class="alert alert-info">[calc]delete $Session->{ship_message};[/calc]</div>
+		[/if]
 
 	</div>
 

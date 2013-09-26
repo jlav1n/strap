@@ -99,7 +99,6 @@
 				  [if scratch onepage]
 					  <label for="ship_widget">[L]Shipping[/L]:</label>
 				  [else]
-				      [weight hide=1]
 					  [L]Shipping[/L][if scratch total_weight] (<a href="[area ord/shipmode]">[shipping-desc]</a>)[/if]
 				  [/else]
 				  [/if]
