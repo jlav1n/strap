@@ -1,13 +1,13 @@
 [tmp page_title]__COMPANY__ -- [L]Select country[/L][/tmp]
 [tmp display_class]noleft[/tmp]
 
+[include include/checkout/initialization]
+
 [if value country]
 	[if !cgi country_reset]
 	[bounce href="[area href=ord/shipping secure=1]"]
 	[/if]
 [/if]
-
-[include include/checkout/initialization]
 
 @_TOP_@
 <!-- BEGIN CONTENT -->

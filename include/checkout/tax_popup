@@ -1,7 +1,6 @@
 [if config SalesTax ne multi]
-    <script>    // JavaScript Form Validation Demo    // by Paul Colton
+<script>
     function check_tax(form) {
-        // Make sure the email field is not blank
         var foundState = false;
 		[calc]
 			if($Variable->{TAXCOUNTRY}) {
@@ -19,5 +18,5 @@
                 [/loop]
         return foundState;
     }
-    </script>
+</script>
 [/if]
