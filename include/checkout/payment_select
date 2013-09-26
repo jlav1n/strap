@@ -120,12 +120,18 @@ function visible (selnam) {
 [/if]
 
 [if scratch pay_cert_code]
-	<b>Apply gift certificate(s)?</b>
+<div class="control-group">
+	<label class="control-label"><b>Gift certificates</b></label>
+	<div class="controls">
 	[loop list="[scratch pay_cert_code]"]
 	[if-loop-data pay_certs amount > 0]
+	<label class="checkbox" for="use_pay_cert[loop-increment]">
 		<input type="checkbox" name="use_pay_cert" value="[loop-code]" id="use_pay_cert[loop-increment]" [checked name=use_pay_cert value="[loop-code]" multiple=1] onclick="this.form.submit()">
-		<label for="use_pay_cert[loop-increment]">Use gift certificate [loop-code] for [currency][loop-data pay_certs amount][/currency]</label>
+		Apply gift certificate [loop-code] for [currency][loop-data pay_certs amount][/currency]
+	</label>
 	[/if-loop-data]
 	[/loop]
 	[value name=use_pay_cert set=""]
+	</div>
+</div>
 [/if]
