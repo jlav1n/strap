@@ -45,7 +45,8 @@
 		[evalue address1]<br>
 		[if value address2][evalue address2]<br>[/if]
 		[evalue city], [evalue state]  [evalue zip]<br>
-		[evalue country]
+		[evalue country]<br>
+		<i>Phone:</i> [evalue phone_day]
 		</address>
 	</div>
 	<div class="span5">
@@ -62,6 +63,7 @@
 	[/if]
 	</div>
 </div>
+	<p style="margin-bottom:19px">Your receipt will be sent to: <b>[evalue email]</b> <span class="smallest"><a href="[if session logged_in][area member/change_email][else][area ord/shipping][/else][/if]">change</a></span></p>
 </fieldset>
 
 <div class="well" style="padding-top:10px">
