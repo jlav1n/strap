@@ -64,7 +64,7 @@
 <div class="control-group">
 	<label for="country" class="control-label">[L]Country[/L]</label>
 	<div class="controls">
-		[display name=country id=country type=country_select value="[either][evalue country][or]__DEFAULT_COUNTRY__[/either]" no-region=1 state_js="check_tax(this.form)"]
+		[display name=country id=country type=country_select value="[either][evalue country][or]__SHIP_DEFAULT_COUNTRY__[/either]" no-region=1 state_js="check_tax(this.form)"]
 	</div>
 </div>
 <div class="control-group">
