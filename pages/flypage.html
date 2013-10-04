@@ -30,7 +30,7 @@
 
 <h1>[item-description]</h1>
 
-<form action="[area href="[item-code]"]" method="POST" class="form-horizontal">
+<form action="[area href="[if-item-field option_type][item-code][else]ord/basket[/else][/if-item-field]"]" method="POST" class="form-horizontal">
 <input type="hidden" name="mv_action"  value="refresh">
 <input type="hidden" name="mv_order_item"  value="[item-code]">
 [form-session-id]
@@ -49,7 +49,7 @@
 	        <p style="margin-top:1em" class="text-info">[msg arg.0="[page ord/basket]" arg.1="</a>"]This item is currently in your %sshopping cart%s.[/msg]</p>
 	    [/if]
 
-		[edisplay show_var=0]
+		[edisplay show_var=0 class="unstyled alert alert-error"]
 
 		[if-item-field option_type eq Matrix]
 			[set check_opt]
