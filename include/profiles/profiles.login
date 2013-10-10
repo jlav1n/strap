@@ -32,7 +32,7 @@ __NAME__ Login
 [if type=explicit compare="[userdb login]"]
 	[set mv_no_count][/set]
 	[set mv_no_session_id][/set]
-	mv_nextpage=[either][cgi destination][or][cgi mv_successpage][or][cgi mv_nextpage][/either]
+	mv_nextpage=[either][cgi destination][or][cgi mv_successpage][or]member/service[/either]
 [else]
 	mv_nextpage=[either][cgi mv_failpage][or][cgi mv_nextpage][/either]
 [/else]
