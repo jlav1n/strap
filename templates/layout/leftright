@@ -12,7 +12,7 @@
 <div class="container-fluid">
 	<div class="row-fluid">
 	    <a href="[area]"><img src="__LOGO__" alt="__COMPANY__"></a>
-		<div class="navbar">
+		<div class="navbar navbar-inverse">
 			<div class="navbar-inner">
 				<div class="container">
 					{{TOP_MENU}}
@@ -23,11 +23,11 @@
 	</div>
 	<div class="row-fluid ic_contain">
 
-		<div class="span3 lrcol1">
+		<div class="span3">
 		{{LEFT}}
 		</div>
 
-		<div class="span6 lrcol2">
+		<div class="span6">
 			{{TOP?}}
 				{{TOP}}
 			{{/TOP?}}
@@ -38,7 +38,7 @@
 			{{/BOTTOM?}}
 		</div>
 
-		<div class="span3 lrcol3">
+		<div class="span3">
 			{{RIGHT}}
 		</div>
 
