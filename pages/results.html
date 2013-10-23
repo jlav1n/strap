@@ -1,20 +1,7 @@
-[comment]
-ui_page: results.html
-ui_type: page
-ui_name: results.html
-ui_page_template: leftright
-ui_source: pages/results.html
-ui_template: Yes
-ui_template_name: leftright
-[/comment]
-
 [tmp page_title]__COMPANY__ -- [L]Search Results[/L][/tmp]
-[tmpn members_only][/tmpn]
-
-[calc]
-	$mc = $Values->{mv_search_match_count};
-	return;
-[/calc]
+[if value more_link]
+	[tmp page_title]__COMPANY__ -- [either][value-extended name=mv_searchspec joiner=" / "][or][value name=more_link filter=uri2string keep=1][/either][/tmp]
+[/if]
 
 [control reset=1]
 [control-set]
@@ -23,21 +10,7 @@ ui_template_name: leftright
 [/control-set]
 [control-set]
 	[component]product_tree[/component]
-	[show_categories]1[/show_categories]
 	[output]left[/output]
-[/control-set]
-[control-set]
-	[component][/component]
-[/control-set]
-[control-set]
-	[component]results_buylist[/component]
-[/control-set]
-[control-set]
-	[component]cross[/component]
-	[banner][L]Also see...[/L][/banner]
-	[cols]2[/cols]
-	[size]2[/size]
-	[output]bottom[/output]
 [/control-set]
 [control-set]
 	[component]random[/component]
@@ -50,6 +23,141 @@ ui_template_name: leftright
 
 @_TOP_@
 <!-- BEGIN CONTENT -->
+
+[search-region]
+
+[on-match]
+[tmp meta_header]
+[calcn]
+	return unless $Values->{more_link};
+	(my $more_page = $Session->{last_url}) =~ s|^/.*/(.*)(\.html)?|$1|;
+
+	my $mc = $Values->{mv_search_match_count};
+	my ($ml, $fm) = ( $Values->{mv_matchlimit}, $Values->{mv_first_match} );
+	my ($canon, $rel_prev, $rel_next);
+#Debug("more_page=$more_page, ml=$ml, fm=$fm, mc=$mc");
+
+	my ($prev, $next);
+	REL: {
+		last REL if $mc < $ml;
+		if($fm == 0) {  # first page
+			$rel_next = $Values->{more_link} . '/2';
+		}
+		elsif( ($mc - $fm - $ml) <= 0 ) {  # last page
+			$prev = sprintf("%.0f", ($mc / $ml)-1);
+			$rel_prev = $Values->{more_link} . '/' . ($prev ? $prev : '1');
+		}
+		else {  # page 2 to second-to-last
+			$prev = sprintf("%.0f", ($fm / $ml));
+			$next = $prev + 2;
+			$rel_prev = $Values->{more_link} . "/$prev";
+			$rel_next = $Values->{more_link} . "/$next";
+		}
+	}
+	CANON: {
+		last CANON if $more_page !~ /^1|(Next)|(Prev)/;
+		if($more_page == 1) {
+			$canon = '';
+		}
+		else {
+			$canon = ($fm+$ml) / $ml;
+			$canon = '' if $canon == 1;
+		}
+		$canon = $Values->{more_link} . ($canon ? "/$canon" : '');
+	}
+	my @out;
+	my $url = $Variable->{SAMPLEURL} . $Variable->{CGI_URL};
+	my $ext = $Scratch->{mv_add_dot_html} ? '.html' : '';
+	$url !~ /\/$/ ? $url .= '/' : '';
+	push @out, qq{<link rel="prev" href="$url$rel_prev$ext">} if $rel_prev;
+	push @out, qq{<link rel="next" href="$url$rel_next$ext">} if $rel_next;
+	$Tag->tmp('rel_next', 1) if $rel_next;
+	push @out, qq{<link rel="canonical" href="$url$canon$ext">} if $canon;
+	if ($prev || $next) { $Scratch->{page_title} = $Scratch->{page_title} . ' - Page ' . (($prev || $next)+1) };
+	return "\t" . join "\n\t", @out;
+[/calcn]
+[/tmp]
+<h2>[either][value name=more_link filter=uri2string keep=1][or]Search Results[/either]</h2>
+[/on-match]
+
+[tmp bw_more]
+[more-list]
+[first-anchor][/first-anchor][last-anchor][/last-anchor]
+[link-template]<li><a href="[area href=|[value more_link]/$ANCHOR$|]">$ANCHOR$</a></li>[/link-template]
+<div class="pagination pagination-centered">
+	<ul>{PREV_LINK}{MORE_LIST}[if scratch rel_next]{NEXT_LINK}[/if]</ul>
+</div>
+[/more-list]
+[/tmp]
+[calc]
+	my $more = $Scratch->{bw_more};
+	$more =~ s,<strong>,<li class="active"><a href="#">,;
+	$more =~ s,</strong> *,</a></li>,g;
+	$Scratch->{bw_more} = $more;
+	return $Values->{more_link} ? $more : undef;
+[/calc]
+
+[search-list]
+
+	[item-change 1][condition][item-field category][/condition]
+	[item-alternate except_first]</ul>[/item-alternate]
+		[if-item-field category]
+			<h3>[either][value banner_text][or][item-field category][/either]</h3>
+		[/if-item-field]
+	<ul class="thumbnails">
+	[/item-change 1]
+
+	<li class="span3">
+		<div class="thumbnail">
+			<a href="[area [item-code]]">
+				[image sku="[item-code]" default="../thumb.gif" imagesubdir=items makesize="120x150>"]
+				<br>[item-description]
+			</a>
+			<br>[item-price]
+		</div>
+	</li>
+
+[/search-list]
+
+[on-match]
+	</ul>
+[/on-match]
+
+[no-match]
+<div>
+	[comment]
+			Don't show the search string if it was empty, since it looks weird
+			and the user will see the error below anyway.
+	[/comment]
+	[tmp matchstring][value-extended name=mv_searchspec joiner=" | " filter=encode_entities][/tmp]
+	[if scratch matchstring]
+	[msg arg.0="[scratch matchstring]"]Sorry, no matches for <B>%s</B>.[/msg]
+	[/if]
+	[if value mv_search_error]
+	<B>
+	[L]Errors[/L]:
+	<BR> 
+	[value-extended name=mv_search_error joiner="<BR>" filter=encode_entities]
+	</B>
+	[/if]
+</div>
+[/no-match]
+
+[if value more_link]
+	[scratch bw_more]
+[else]
+	[more-list]
+	<div class=morelist>
+	   [msg arg.0="[matches]" arg.1="[match-count]"]Matches %s of %s found.[/msg]
+	   [link-template]<a href="$URL$" target="_top" class="morelink">$ANCHOR$</a>[/link-template]
+	   <BR>[more]<BR>
+	</div>
+	[/more-list]
+[/else]
+[/if]
+
+
+[/search-region]
 
 <!-- END CONTENT -->
 @_BOTTOM_@
