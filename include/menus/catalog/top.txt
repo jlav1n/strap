@@ -4,23 +4,16 @@ code	mgroup	msort	next_line	indicator	exclude_on	depends_on	page	form	name	super
 003		0							Logout		0								1
 004		1					logout		Logout		0	Log out, remove your login cookie							1
 005		1					logout	keep_values=1	Logout and keep name/address		0								
-006		0							Your Cart		0								
-007		1					ord/basket		View cart		0								
-008		1					ord/basket	empty_cart=1	Empty cart		0								
-009		0							Checkout		0	Place the order...							
-010		1					ord/country		Multi-page		0	Multiple page checkout							
-011		1					ord/checkout		One-page		0	Simple one-page checkout form							
-012		0							Service		0								1
-013		1					member/service		Service		0	Track orders, do returns, manage name/address, more							1
-014		1					query/check_orders		Order Tracking		0								1
-015		1					member/returns		Order Returns		0	Get an RMA number for an order							1
-016		1					member/account		Account Maintenance		0	Change name, address, email, etc.							1
-017		1					member/change_password		Change Password		0								1
-018		1					member/ship_addresses		Additional Shipping Addresses		0								1
-019		1					member/saved_carts		Saved Carts/Recurring Orders		0								1
-020		0							About Us		0								
-021		1					aboutus		Our Story		0	More information on our company							
-022		1					contact		Contact us		0								
-023		0							Language		0	Choose language							
-024		1					process/locale/en_US/page/index		English		0	Select English							
-025		1					process/locale/de_DE/page/index		Deutsch		0	Select German							
+006		0					member/service		Your Account		0	Track orders, do returns, manage name/address, more							1
+007		0							Your Cart		0								
+008		1					ord/basket		View cart		0								
+009		1					ord/basket	empty_cart=1	Empty cart		0								
+010		0							Checkout		0	Place the order...							
+011		1					ord/country		Multi-page		0	Multiple page checkout							
+012		1					ord/checkout		One-page		0	Simple one-page checkout form							
+013		0							About Us		0								
+014		1					aboutus		Our Story		0	More information on our company							
+015		1					contact		Contact us		0								
+016		0							Language		0	Choose language							
+017		1					process/locale/en_US/page/index		English		0	Select English							
+018		1					process/locale/de_DE/page/index		Deutsch		0	Select German							
