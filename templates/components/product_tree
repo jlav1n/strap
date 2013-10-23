@@ -10,54 +10,54 @@ show_categories:
 	type: yesno
 
 [/comment]
-
 <!-- BEGIN COMPONENT [control component product_tree] -->
-[comment]
-[timed-build file="timed/product_tree" login=1 force=1 minutes=1440 if="[if !variable INDEV]1[/if]"]
-[/comment]
-<div class=row-fluid>
+
+<ul class="nav nav-pills nav-stacked">
+	<li class="nav-header">Products</li>
+	<li><a href="[area All-Products]">All</a></li>
+
 [if control show_categories]
 
-<ul class="nav nav-list pgroup" id="nav_menu">
-	<h4>Product List</h4>
 [query list=1 sql="SELECT prod_group, category FROM products GROUP BY prod_group, category"]
 	[sql-change grp][condition][sql-code][/condition]
-		[sql-alternate except_first]	</ul>
-		</li>[/sql-alternate]
-		<li>[tmp grp][sql-filter string2uri][sql-code][/sql-filter][/tmp]
-			<a href="[area href="[scratch grp]"]">[sql-code]</a>
-			<span data-parent="#nav_menu" data-toggle="collapse" data-target="#collapse[scratch grp]" class="showcursor">
-				[if-sql-param category]...[else]&nbsp;&nbsp;[/else][/if-sql-param]
-			</span>
-			<ul class="nav nav-list collapse" id="collapse[scratch grp]">
+	[sql-alternate except_first]
+			</ul>
+		</li>
+	[/sql-alternate]
+		<li class="dropdown">
+			<a class="dropdown-toggle" data-toggle="dropdown" href="#">[sql-code] <b class="caret"></b></a>
+			[tmp grp][sql-filter string2uri][sql-code][/sql-filter][/tmp]
+			<ul class="dropdown-menu">
+				<li><a href="[area href='[scratch grp]']">All</a></li>
 	[/sql-change grp]
 	[if-sql-param category]
-				<li class="cat_li">
-					<a href="[area href="[scratch grp]/[sql-filter string2uri][sql-pos 1][/sql-filter]"]">[sql-pos 1]</a>
-				</li>
+				<li><a href="[area href="[scratch grp]/[sql-filter string2uri][sql-pos 1][/sql-filter]"]">[sql-pos 1]</a></li>
 	[/if-sql-param]
 	[sql-alternate last_only]
 			</ul>
 		</li>
 	[/sql-alternate]
 [/query]
-</ul>
 
 [else]
 
-<ul class="nav nav-list">
-<br>
-	<h4>Product List</h4>
+[tmp link][value name=more_link filter=uri2string keep=1][/tmp]
 [query list=1 sql="SELECT prod_group FROM products GROUP BY prod_group"]
-<li><a href="[area href="[sql-filter string2uri][sql-code][/sql-filter]"]">[sql-code]</a></li>[/query]
-</ul>
+	<li[if scratch link eq "[sql-code]"] class=disabled[/if]>
+		<a href="[area href="[sql-filter string2uri][sql-code][/sql-filter]"]">[sql-code]</a>
+		[if scratch link eq "[sql-code]"]
+			<ul class="nav nav-list">
+			[query prefix=cat list=1 sql="SELECT category FROM products WHERE prod_group = [cat-quote][scratch link][/cat-quote] GROUP BY category"]
+				<li><a href="[area href="[value more_link]/[cat-filter string2uri][cat-code][/cat-filter]"]">[cat-code]</a></li>
+			[/query]
+			</ul>
+		[/if]
+	</li>
+[/query]
 
 [/else]
 [/if]
 
-<p>&nbsp;</p>
-</div>
-[comment]
-[/timed-build]
-[/comment]
+</ul>
+
 <!-- END COMPONENT [control component product_tree] -->
