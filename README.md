@@ -4,14 +4,12 @@ Bootstrap 2.3.2 Template for Interchange
 This is the Div based Demo for Interchange that modernizes the old
 standard template. It makes use of several newer technologies. jQuery is
 included by default. All table-related layout has been replaced with
-divs. Built on the Bootstrap Framework, version 2.3.2:
+divs. Built on the [Bootstrap Framework, version
+2.3.2](http://getbootstrap.com/2.3.2/).
 
-        http://getbootstrap.com/2.3.2/
-
-You can download a customized Bootstrap, and drop it into the
-html/boostrap directory, to load your own colors, etc:
-
-        http://getbootstrap.com/2.3.2/customize.html
+You can [download a customized
+Bootstrap](http://getbootstrap.com/2.3.2/customize.html), and drop it
+into the html/boostrap directory, to load your own colors, etc.
 
 Created by [Perusion](http://perusion.com), based on the earlier
 standard demo.
