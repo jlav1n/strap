@@ -33,9 +33,9 @@ buttons:
 
 [/comment]
 <!-- BEGIN COMPONENT [control component random] -->
-    <table class="well table table-condensed table-bordered">
+	<table class="well table table-condensed">
 		<caption>
-		<h3>[control name=banner default="[L]Random Display Component[/L]"]</b>
+		[control name=banner default="[L]Random Items[/L]"]
 		</caption>
 		[table-organize embed=1 pretty=1 cols="[control cols 2]"]
 		[loop
@@ -46,28 +46,21 @@ buttons:
 						ra=yes
 						ml=[control pool 1000]
 					"]
-			<TD class="txtc" style="position:relative">
-				
-				[if-loop-field thumb]    
-					<div style="position:relative;top:0px;left:0px">
-						<a href="[area [loop-code]]">			 	      
-							[loop-description]<br>
-							<img border="0" src="thumb/[loop-field thumb]"><br>
-						</a>
-						[L]Our Price[/L]: <B>[loop-price]</B>
-					[if type=explicit condition="[control buttons]"]
-						<div style="position:relative;bottom:2px;margin-top:5px;">
-							[b-link href=order form=|mv_order_item=[loop-code]| class="btn btn-mini btn-buy"][L]BUY NOW[/L][/b-link]
-							<br>
-							[b-link href=|[loop-code]| class="btn btn-mini btn-info"][L]More Info[/L][/b-link]
-						</div>
-					[/if]
+			<TD class="txtc">
+				<a href="[area [loop-code]]">
+					[loop-description]<br>
+					[if-loop-field thumb][image src="thumb/[loop-field thumb]"]<br>[/if-loop-field]
+				</a>
+				[L]Our Price[/L]: <b>[loop-price]</b>
+				[if control buttons]
+					<div style="margin-top:5px;">
+						<a href="[area order [loop-code]]" class="btn btn-mini btn-buy">[L]Add to Cart[/L]</a>
 					</div>
-				[/if-loop-field]	           
+				[/if]
 			</TD>
 		[/loop]
 		[/table-organize]
-    </table>       
+	</table>
   
 
 <!-- END COMPONENT [control component random] -->
