@@ -11,7 +11,7 @@ ui_template_name: noleft
 
 [calc]$Config->{NoSearch} = '';[/calc]
 
-[query list=1 sql="select username,password from userdb" random=1]
+[query list=1 sql="select usernick,password from userdb" random=1]
 [tmp tmp_uname][sql-code][/tmp]
 [tmp tmp_upass][sql-param password][/tmp]
 [/query]
