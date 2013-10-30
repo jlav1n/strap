@@ -208,7 +208,7 @@ Payment processing...payment_method=[value mv_order_profile]
 
 [/try]
 
-[catch error-scratch="mv_route_failed" interpolate=1]
+[catch error-scratch="mv_route_failed"]
 	There was an error accepting payment: $ERROR$
 	[if scratch pay_certs_to_capture]
 		voiding pay_cert auth, void id:[pay-cert tid="[scratch pay_certs_to_capture]" void=1]
