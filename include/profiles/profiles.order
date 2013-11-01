@@ -81,8 +81,11 @@ __COMMON_ORDER_PROFILE__
 &fatal = yes
 &setcheck = end_profile 1
 
-[if !session admin]
+[if session admin]
+&set = prof_po_accepted [either][var ENTRY_PO_ACCEPTED][or][var PO_ACCEPTED][/either]
+[else]
 &set = prof_po_accepted [var PO_ACCEPTED]
+[/else]
 [/if]
 
 prof_po_accepted=required This site doesn't accept purchase orders. You should not have been offered that option; please contact us.
@@ -121,8 +124,11 @@ __NAME__                            postal
 
 __COMMON_ORDER_PROFILE__
 
-[if !session admin]
+[if session admin]
+&set = prof_mode_accepted [either][var ENTRY_POSTAL_ACCEPTED][or][var POSTAL_ACCEPTED][/either]
+[else]
 &set = prof_mode_accepted [var POSTAL_ACCEPTED]
+[/else]
 [/if]
 
 prof_mode_accepted=required This site doesn't accept postal orders. You should not have been offered that option; please contact us.
@@ -148,8 +154,11 @@ not_po_box=mandatory No PO boxes allowed for COD.
 not_po_box=mandatory No PO boxes allowed for COD.
 [/if]
 
-[if !session admin]
+[if session admin]
+&set = prof_mode_accepted [either][var ENTRY_COD_ACCEPTED][or][var COD_ACCEPTED][/either]
+[else]
 &set = prof_mode_accepted [var COD_ACCEPTED]
+[/else]
 [/if]
 
 prof_mode_accepted=required This site doesn't accept COD orders. You should not have been offered that option; please contact us.
@@ -169,8 +178,11 @@ __NAME__                            online_check
 
 __COMMON_ORDER_PROFILE__
 
-[if !session admin]
+[if session admin]
+&set = prof_mode_accepted [either][var ENTRY_CHECK_ACCEPTED][or][var CHECK_ACCEPTED][/either]
+[else]
 &set = prof_mode_accepted [var CHECK_ACCEPTED]
+[/else]
 [/if]
 
 prof_mode_accepted=required This site doesn't accept online checks. You should not have been offered that option; please contact us.
