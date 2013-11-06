@@ -1,4 +1,4 @@
-[tmp page_title]__COMPANY__ -- Receipt[/tmp]
+[tmp page_title]__COMPANY__ -- [L]Receipt[/L][/tmp]
 [tmpn display_class]noleft[/tmpn]
 
 @_TOP_@
@@ -10,7 +10,7 @@
 <TABLE>
 <tr>
 	<th align=right>
-	ORDER NUMBER
+	[L]ORDER NUMBER[/L]
 	</th>
 	<td>
 	[value mv_order_number]
@@ -18,7 +18,7 @@
 </tr>
 <tr>
 	<th align=right>
-	Order Date
+	[L]Order Date[/L]	
 	</th>
 	<td>
 	[time]%B %e, %Y[/time]
@@ -26,7 +26,7 @@
 </tr>
 <tr>
 	<th align=right>
-		Name
+		[L]Name[/L]	
 	</th>
 	<td>
 	[value fname] [value lname]
@@ -35,7 +35,7 @@
 [if value company]
 <tr>
 	<th align=right>
-		Company
+		[L]Company[/L]
 	</th>
 	<td>
 	[value company]
@@ -44,7 +44,7 @@
 [/if]
 <tr>
 	<th align=right>
-		Email Address
+		[L]Email Address[/L]
 	</th>
 	<td>
 	[value email]
@@ -52,7 +52,7 @@
 </tr>
 <tr>
 	<th align=right>
-		Address
+		[L]Address[/L]
 	</th>
 	<td>
 	[value address1]
@@ -70,7 +70,7 @@
 [/if]
 <tr>
 	<th align=right>
-		City, State, Zip
+		[L]City[/L], [L]State[/L], [L]Zip[/L]
 	</th>
 	<td>
 	[value city], [value state]  [value zip]
@@ -78,7 +78,7 @@
 </tr>
 <tr>
 	<th align=right>
-		Country
+		[L]Country[/L]
 	</th>
 	<td>
 	[value country]
@@ -86,7 +86,7 @@
 </tr>
 <tr>
 	<th align=right>
-		Payment Method
+		[L]Payment Method[/L]
 	</th>
 	<td>
 	[value mv_payment]
@@ -94,7 +94,7 @@
 </tr>
 <tr>
 	<th align=right>
-		Shipping Method
+		[L]Shipping Method[/L]
 	</th>
 	<td>
 	[shipping_desc]
@@ -103,7 +103,7 @@
 [if value mv_handling]
 <tr>
 	<th align=right>
-		Handling Charge
+		[L]Handling Charge[/L]
 	</th>
 	<td>
 	[loop list="[value mv_handling]"]
@@ -111,7 +111,7 @@
 		[condition]1[/condition]
 		[else]<BR>[/else]
 	[/loop-change 1]
-	[either][shipping_desc mode="[loop-code]"][or]CHARGED[/either]
+	[either][shipping_desc mode="[loop-code]"][or][L]CHARGED[/L][/either]
 	[/loop]
 	</td>
 </tr>
@@ -119,7 +119,7 @@
 [if value phone_day]
 <tr>
 	<th align=right>
-		Daytime Phone
+		[L]Daytime Phone[/L]
 	</th>
 	<td>
 	[value phone_day]
@@ -129,7 +129,7 @@
 [if value phone_night]
 <tr>
 	<th align=right>
-		Evening Phone
+		[L]Evening Phone[/L]
 	</th>
 	<td>
 	[value phone_night]
@@ -139,7 +139,7 @@
 [if !value mv_same_billing]
 <tr>
 	<th align=right>
-		Billing Name
+		[L]Billing Name[/L]
 	</th>
 	<td>
 	[value b_fname] [value b_lname]
@@ -147,7 +147,7 @@
 </tr>
 <tr>
 	<th align=right>
-		Billing Address
+		[L]Billing Address[/L]
 	</th>
 	<td>
 	[value b_address1]
@@ -165,7 +165,7 @@
 [/if]
 <tr>
 	<th align=right>
-		City, State, Zip
+		[L]City[/L], [L]State[/L], [L]Zip[/L]
 	</th>
 	<td>
 	[value b_city], [value b_state]  [value b_zip]
@@ -173,7 +173,7 @@
 </tr>
 <tr>
 	<th align=right>
-		Billing Country
+		[L]Billing Country[/L]
 	</th>
 	<td>
 	[value b_country]
@@ -233,7 +233,7 @@
 
 	[if-item-param pay_cert_code]
         [tmp gc_surl][area href="cert/[item-param pay_cert_code]/[item-param pay_cert_check]" no_session_id=1 no_count=1][/tmp]
-		<br><b style="color:red">Give this URL to pass on the gift certificate:</b>
+		<br><b style="color:red">[L]Give this URL to pass on the gift certificate[/L]:</b>
 				<a href="[scratch gc_surl]">[scratch gc_surl]</a>
 	[/if-item-param]
 
@@ -351,7 +351,7 @@
 </table>
 <P>
 <font face="Verdana, Arial, Helvetica, sans-serif" size="1">
-<I>(Please print this receipt for your records. Thank you for your order!)</I>
+<I>[L RECEIPT_PRINT](Please print this receipt for your records. Thank you for your order!)[/L]</I>
 </font>
 <P>
 
