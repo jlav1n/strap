@@ -1,3 +1,8 @@
+[calc]
+	## set match_count here, gets screwed up later, for some reason
+	$mc = $Values->{mv_search_match_count};
+	return;
+[/calc]
 [tmp page_title]__COMPANY__ -- [L]Search Results[/L][/tmp]
 [if value more_link]
 	[tmp page_title]__COMPANY__ -- [either][value-extended name=mv_searchspec joiner=" / "][or][value name=more_link filter=uri2string keep=1][/either][/tmp]
@@ -32,7 +37,7 @@
 	return unless $Values->{more_link};
 	(my $more_page = $Session->{last_url}) =~ s|^/.*/(.*)(\.html)?|$1|;
 
-	my $mc = $Values->{mv_search_match_count};
+	## $mc set above.
 	my ($ml, $fm) = ( $Values->{mv_matchlimit}, $Values->{mv_first_match} );
 	my ($canon, $rel_prev, $rel_next);
 #Debug("more_page=$more_page, ml=$ml, fm=$fm, mc=$mc");
@@ -44,7 +49,7 @@
 			$rel_next = $Values->{more_link} . '/2';
 		}
 		elsif( ($mc - $fm - $ml) <= 0 ) {  # last page
-			$prev = sprintf("%.0f", ($mc / $ml)-1);
+			$prev = (($fm+$ml) / $ml) - 1;
 			$rel_prev = $Values->{more_link} . '/' . ($prev ? $prev : '1');
 		}
 		else {  # page 2 to second-to-last
