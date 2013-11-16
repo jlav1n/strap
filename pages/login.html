@@ -46,7 +46,7 @@ mv_username=email
 		<input type="hidden" name="mv_form_profile" value="emailcheck">
 		<input type="hidden" name="mv_todo"  value="return">
 		<input type="hidden" name="mv_nextpage" value="login">
-		<input type="hidden" name="destination" value="[either][scratch mv_successpage][or][cgi destination][/either]">
+		<input type="hidden" name="destination" value="[either][scratch mv_successpage][or][ecgi destination][/either]">
 		[form-session-id]
 
 		<legend style="margin-bottom:0;border:none">[L]What is your email address?[/L]</legend>
@@ -88,7 +88,7 @@ mv_username=email
 
 [else]
 
-	[bounce page=member/service]
+	[bounce page="[either][ecgi destination][or]member/service[/either]"]
     
 [/else]
 [/if]
