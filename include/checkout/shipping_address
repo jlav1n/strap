@@ -32,13 +32,13 @@
 <div class="control-group">
 	<label for="address1" class="control-label">[error name=address1 std_label="[L]Address line 1[/L]" required=1]</label>
 	<div class="controls">
-		<input type=text name=address1 id=address1 value="[evalue address1]" maxlength="64">
+		<input type=text name=address1 id=address1 value="[evalue address1]" maxlength="64" autocorrect="off">
 	</div>
 </div>
 <div class="control-group">
 	<label for="address2" class="control-label">[error name=address2 std_label="[L]Address line 2[/L]"]</label>
 	<div class="controls">
-		<input type=text name=address2 id=address2 value="[evalue address2]" maxlength="64">
+		<input type=text name=address2 id=address2 value="[evalue address2]" maxlength="64" autocorrect="off">
 		<small class="help-inline">([L]optional; Apt, Suite or Floor[/L])</small>
 	</div>
 </div>
@@ -75,7 +75,7 @@
             [evalue email]
 			<span class="help-inline">(<a href="[area member/change_email]">[L]change[/L]</a>)</span>
 		[else]
-			<input type=email name=email id=email value="[evalue email]">
+			<input type=email name=email id=email value="[evalue email]" autocapitalize="off" autocorrect="off">
 			<small class="help-inline">([L]example[/L]: name@domain.com)</small>
 		[/else]
 		[/if]

@@ -1,8 +1,3 @@
-body {
-//  font-size: 13px;
-//  line-height: 18px;
-}
-
 .container-fluid {
 	padding-top: 20px;
 }
@@ -36,4 +31,20 @@ caption {
 
 .navbar .nav > li > a {
   cursor:pointer;
+}
+
+form[novalidate] input:focus:invalid, 
+form[novalidate] textarea:focus:invalid, 
+form[novalidate] select:focus:invalid {
+    color: #555;
+    border-color: rgba(82, 168, 236, 0.8);;
+    -webkit-box-shadow: 
+        inset 0 1px 1px rgba(0, 0, 0, 0.075), 
+        0 0 8px rgba(82, 168, 236, 0.6);
+    -moz-box-shadow: 
+        inset 0 1px 1px rgba(0, 0, 0, 0.075), 
+        0 0 8px rgba(82, 168, 236, 0.6);
+    box-shadow: 
+        inset 0 1px 1px rgba(0, 0, 0, 0.075), 
+        0 0 8px rgba(82, 168, 236, 0.6);
 }

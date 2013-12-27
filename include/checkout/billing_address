@@ -129,13 +129,13 @@
 <div class="control-group">
 	<label for="b_address1" class="control-label">[error name=b_address1 std_label="[L]Address line 1[/L]" required=1]</label>
 	<div class="controls">
-		<input type="text" name="b_address1" id="b_address1" value="[evalue b_address1]" maxlength="64">
+		<input type="text" name="b_address1" id="b_address1" value="[evalue b_address1]" maxlength="64" autocorrect="off">
 	</div>
 </div>
 <div class="control-group">
 	<label for="b_address2" class="control-label">[error name=b_address2 std_label="[L]Address line 2[/L]"]</label>
 	<div class="controls">
-		<input type="text" name="b_address2" id="b_address2" value="[evalue b_address2]" maxlength="64">
+		<input type="text" name="b_address2" id="b_address2" value="[evalue b_address2]" maxlength="64" autocorrect="off">
 		<small class="help-inline">([L]optional; Apt, Suite or Floor[/L])</small>
 	</div>
 </div>

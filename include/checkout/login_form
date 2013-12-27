@@ -16,7 +16,7 @@
 
 <p>[msg arg.0="<a href='[area new_account]'>" arg.1="</a>"]If you have an account with us, please login using the fields below. It is not required, but you can also %screate an account%s with us.[/msg]</p>
 
-	<input type="email" name="mv_username" id="mv_username" value="[read-cookie MV_USERNAME]" placeholder="[L]Email[/L]">
+	<input type="email" autocapitalize="off" autocorrect="off" name="mv_username" id="mv_username" value="[read-cookie MV_USERNAME]" placeholder="[L]Email[/L]">
 	<input type="password" name="mv_password" id="mv_password" value="" autocomplete="off" placeholder="[L]Password[/L]">
 	<input type="submit" value="[L]Log In[/L]" class="btn">
 

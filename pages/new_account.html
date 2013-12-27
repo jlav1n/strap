@@ -50,14 +50,14 @@ mv_username=email_only
 	<div class="control-group">
         <label for="mv_username" class="control-label">[error filter=e name=mv_username std_label="[L]Your email[/L]"]:</label>
 		<div class="controls">
-			<input type="email" name="mv_username" id="mv_username" value="[value-extended name=mv_username]">
+			<input type="email" name="mv_username" id="mv_username" value="[value-extended name=mv_username]" autocapitalize="off" autocorrect="off">
 			<span class="help-inline">(please double-check)</span>
 		</div>
 	</div>
 	<div class="control-group">
         <label for="mv_password" class="control-label">[error for=mv_password std_label="[L]Password[/L]"]:</label>
 		<div class="controls">
-			<input type="password" name="mv_password" id="mv_password" value="">
+			<input type="password" name="mv_password" id="mv_password" value="" autocomplete="off">
 		</div>
 	</div>
 	<div class="control-group">

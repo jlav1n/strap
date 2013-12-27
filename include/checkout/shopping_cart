@@ -42,7 +42,7 @@
             [/if-item-field]
           </td>
           <td>
-            <input type="text" name="[item-quantity-name]" value="[item-quantity]" class="span2">
+            <input type="number" name="[item-quantity-name]" value="[item-quantity]" class="span5">
           </td>
           <td style="text-align:right">
             [item-discount-price]
