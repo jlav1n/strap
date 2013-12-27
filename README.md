@@ -19,6 +19,13 @@ Copyright (C) 2013 Hanson Investments, Inc. d/b/a Perusion
 This program is offered without warranty of any kind.
 See file LICENSE for redistribution terms.
 
+Requirements:
+-------------
+
+Works best with the latest Interchange source, unless there is a release
+after Dec 24, 2013:
+	http://ftp.icdevgroup.org/interchange-nightly.tar.gz
+
 Usage:
 ------
 
