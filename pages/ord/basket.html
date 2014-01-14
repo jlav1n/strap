@@ -33,23 +33,6 @@
 
 [edisplay]
 
-[if cgi empty_cart]
-[calc]
-	if($CGI->{empty_cart} > 1) {
-		@$Items = ();
-	}
-	else {
-		return q{
-<script>
-	if( confirm('[L]Are you sure you want to empty the cart?[/L]') ) 
-		window.location='[area href=@@MV_PAGE@@ form="empty_cart=2"]';
-</script>
-		};
-	}
-	return;
-[/calc]
-[/if]
-
 [calc]
 	my $cname = $Config->{CookieName} || 'MV_SESSION_ID';
 	$Scratch->{have_cookie} = $Tag->read_cookie($cname)
