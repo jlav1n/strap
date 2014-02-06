@@ -183,7 +183,7 @@
 	</td>
 [input-filter name="[item-quantity-name]" op="nullselect digits_dot"][/input-filter]
 	<td>
-		<input type="number" name="[item-quantity-name]" value="[item-quantity]" class="span5">
+		<input type="[if config FractionalItems]text[else]number[/else][/if]" name="[item-quantity-name]" value="[item-quantity]" class="span5">
 	</td>
 [if discount [item-code]]
 	<td style="text-align:right">
