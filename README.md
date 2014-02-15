@@ -144,3 +144,5 @@ Some of the changes include:
 * Page to reconfigure catalog: pages/test/recon.html
 
 * Page to show shipping information: pages/test/ship.html
+
+* Error Log now lives in logs/ directory, instead of catalog root.

@@ -40,6 +40,7 @@ LINKHOST	__MVC_LINKHOST__	Admin Control
 LINKMODE	__MVC_LINKMODE__	Admin Control
 LINKPORT	__MVC_LINKPORT__	Admin Control
 LOCALES	__MVC_LOCALES__	Internationalization
+LOGDIR	logs	Admin Control
 LOGO	logo.png	Template
 MAILING_FROM	__MVC_COMPANY__ <__MVC_MAILORDERTO__>	Mailings
 MAILING_MAX_DIRECT	50	Mailings
