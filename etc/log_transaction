@@ -403,6 +403,7 @@ b_country: [scratch tmp_country]
 b_phone: [scratch tmp_phone]
 payment_method: [value mv_payment]
 payment_mode: [data session payment_mode]
+avs: [calc] ($Session->{payment_result} || {})->{'pop.avs_code'}; [/calc]
 order_id: [data session payment_id]
 auth_code: [calc] ($Session->{payment_result} || {})->{'pop.auth-code'}; [/calc]
 tracking_number:
