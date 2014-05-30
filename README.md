@@ -37,6 +37,10 @@ Interchange directory (e.g. /usr/local/interchange). From there, run:
         (If you cloned the repository, you should manually remove the
         .git directory from your catalog root, after installation.)
 
+        Note: if you previously installed the "standard" template, you
+              should first run this command:
+			  	`rm [/path/to/interchange]/code/template_tag/standard/pay_cert*`
+
 Some of the changes include:
 ----------------------------
 
