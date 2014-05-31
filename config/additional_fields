@@ -1,10 +1,6 @@
 COMPANY
 Your company name
-Standard Store
-
-WWWDIR
-Your catalog www directory relative to doc root
-/__MVC_CATALOGNAME__
+Strap Store
 
 MYSQL
 Set to 1 if you want to use MySQL

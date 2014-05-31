@@ -69,6 +69,7 @@ PUBLISH_NO_PAGE_ROOT	0	Admin Control
 PUBLISH_PUT_IMAGES	images	Admin Control
 PUBLISH_PUT_PAGES	pages	Admin Control
 PUBLISH_QUIT_ON_RCS_ERROR	0	Admin Control
+RUNDIR	run	Admin Control
 SAMPLEHTML	__MVC_SAMPLEHTML__	Directories and Paths
 SAMPLEURL	__MVC_SAMPLEURL__	Directories and Paths
 SECURE_ENABLE	0	General
@@ -111,4 +112,4 @@ UI_WIDGET_TYPES		Admin Control
 UPS_COUNTRY_FIELD	country	Shipping
 UPS_ORIGIN	45056	Shipping
 UPS_POSTCODE_FIELD	zip	Shipping
-WWW_DIR	__MVC_WWWDIR__	Directories and Paths
+WWW_DIR	/__MVC_CATALOGNAME__	Directories and Paths
