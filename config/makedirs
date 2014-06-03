@@ -38,10 +38,20 @@ if test -n '__MVC_RUNDIR__'
 then
 	RUNDIR='__MVC_RUNDIR__'
 	mkdir -p     __MVC_RELOCATE__$RUNDIR
+	if test -n "$CATUSER"
+	then
+		[ -n "$CATUSER"  ] && chown $CATUSER  __MVC_RELOCATE__$RUNDIR
+		[ -n "$CATGROUP" ] && chgrp $CATGROUP __MVC_RELOCATE__$RUNDIR
+	fi
 	chmod $DMODE __MVC_RELOCATE__$RUNDIR
 else
 	RUNDIR='__MVC_CATROOT__/run'
 	mkdir -p     __MVC_RELOCATE__$RUNDIR
+	if test -n "$CATUSER"
+	then
+		[ -n "$CATUSER"  ] && chown $CATUSER  __MVC_RELOCATE__$RUNDIR
+		[ -n "$CATGROUP" ] && chgrp $CATGROUP __MVC_RELOCATE__$RUNDIR
+	fi
 	chmod $DMODE __MVC_RELOCATE__$RUNDIR
 fi
 
