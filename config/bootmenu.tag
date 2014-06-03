@@ -474,7 +474,7 @@ EOF
 
 	$name =~ s|/|_|g;
 	$opt->{ul_id} ||= $name;
-	$opt->{class} ||= 'nav';
+	$opt->{class} ||= 'nav navbar-nav';
 
 	push @out, <<EOF;
 <ul id="$opt->{ul_id}" class="$opt->{class}" style="$opt->{style}" $opt->{extra}>
