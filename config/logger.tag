@@ -12,7 +12,7 @@ sub {
 	};
 	my $die = sub {
 		my $msg = errmsg(@_);
-		$Tag->error( { name => $file, set => $msg });
+		$Tag->error( { name => $name, set => $msg });
 		Log( "died: $msg", { file => $file });
 		return;
 	};
@@ -26,3 +26,7 @@ sub {
 	return($log, $die, $warn);
 }
 EOR
+UserTag logger Documentation <<EOD
+	Use like:
+	my ($log, $die, $warn) = $Tag->logger('munge_mv_order', 'logs/munge.log');
+EOD
