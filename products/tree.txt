@@ -1,17 +1,8 @@
 code	parent_fld	mgroup	msort	page	form	name	description	inactive	extended	next_line	indicator	exclude_on	depends_on	super	help_name	img_dn	img_up	img_sel	img_icon	url	member
 395	393	Products2	2	os28081		Steel Wool		0													
 396	Products2	Products2	0	scan/co=yes/fi=products/sf=prod_group/se=Safety Equipment/op=eq/tf=category,description		Safety Equipment		0													
-987	985	catalog/top	1	process/locale/de_DE/page/index		Deutsch	Select German	0													
-986	985	catalog/top	1	process/locale/en_US/page/index		English	Select English	0													
-984	982	catalog/top	1	contact		Contact us		0													
-985	catalog/top	catalog/top	0			Language	Choose language	0													
-983	982	catalog/top	1	aboutus		Our Story	More information on our company	0													
-982	catalog/top	catalog/top	0			About Us		0													
-980	974	catalog/top	1	member/ship_addresses		Additional Shipping Addresses		0													1
-981	974	catalog/top	1	member/saved_carts		Saved Carts/Recurring Orders		0													1
-979	974	catalog/top	1	member/change_password		Change Password		0													1
-977	974	catalog/top	1	member/returns		Order Returns	Get an RMA number for an order	0													1
-978	974	catalog/top	1	member/account		Account Maintenance	Change name, address, email, etc.	0													1
+1111	1110	catalog/top	1	process/locale/en_US/page/index		English	Select English	0													
+1112	1110	catalog/top	1	process/locale/de_DE/page/index		Deutsch	Select German	0													
 26	Products	Products	0	scan/co=yes/fi=products/sf=prod_group/se=Hand Tools/op=eq/tf=category,description		Hand Tools		0													
 27	26	Products	1	scan/co=yes/fi=products/sf=prod_group/se=Hand Tools/op=eq/sf=category/se=Brushes/op=eq/tf=description		Brushes		0													
 28	27	Products	2	os28009		Brush Set		0													
@@ -89,17 +80,17 @@ code	parent_fld	mgroup	msort	page	form	name	description	inactive	extended	next_l
 142	141	catalog/line	2	subsub		psubsub		0													
 140	catalog/line	catalog/line	0	scan/ra=yes/tf=category,title/fi=products		Products		0													
 146	catalog/line	catalog/line	0	contact		Contact us		0													
-975	974	catalog/top	1	member/service		Service	Track orders, do returns, manage name/address, more	0													1
-976	974	catalog/top	1	query/check_orders		Order Tracking		0													1
-974	catalog/top	catalog/top	0			Service		0													1
-973	971	catalog/top	1	ord/checkout		One-page	Simple one-page checkout form	0													
-971	catalog/top	catalog/top	0			Checkout	Place the order...	0													
-972	971	catalog/top	1	ord/country		Multi-page	Multiple page checkout	0													
-970	968	catalog/top	1	ord/basket	empty_cart=1	Empty cart		0													
-969	968	catalog/top	1	ord/basket		View cart		0													
-966	965	catalog/top	1	logout		Logout	Log out, remove your login cookie	0													1
-968	catalog/top	catalog/top	0			Your Cart		0													
-967	965	catalog/top	1	logout	keep_values=1	Logout and keep name/address		0													
+1110	catalog/top	catalog/top	0			Language	Choose language	0													
+1108	1107	catalog/top	1	aboutus		Our Story	More information on our company	0													
+1109	1107	catalog/top	1	contact		Contact us		0													
+1107	catalog/top	catalog/top	0			About Us		0													
+1103	catalog/top	catalog/top	0	ord/basket		Your Cart		0													
+1104	catalog/top	catalog/top	0			Checkout	Place the order...	0													
+1105	1104	catalog/top	1	ord/country		Multi-page	Multiple page checkout	0													
+1106	1104	catalog/top	1	ord/checkout		One-page	Simple one-page checkout form	0													
+1102	catalog/top	catalog/top	0	member/service		Your Account	Track orders, do returns, manage name/address, more	0													1
+1100	1099	catalog/top	1	logout		Logout	Log out, remove your login cookie	0													1
+1101	1099	catalog/top	1	logout	keep_values=1	Logout and keep name/address		0													
 394	393	Products2	2	os28087		Sanders Multi-Pac		0													
 393	384	Products2	1	scan/co=yes/fi=products/sf=prod_group/se=Painting Supplies/op=eq/sf=category/se=Sandpaper/op=eq/tf=description		Sandpaper		0													
 392	391	Products2	2	os28004		Ergo Roller		0													
@@ -165,6 +156,6 @@ code	parent_fld	mgroup	msort	page	form	name	description	inactive	extended	next_l
 402	400	Products2	2	os28070		Electricians Tool Belt		0													
 403	399	Products2	1	scan/co=yes/fi=products/sf=prod_group/se=Tool Storage/op=eq/sf=category/se=Toolboxes/op=eq/tf=description		Toolboxes		0													
 404	403	Products2	2	os28069		Flat Top Toolbox		0													
-965	catalog/top	catalog/top	0			Logout		0													1
-964	catalog/top	catalog/top	0	login		Log In	Sign on!	0													0
-963	catalog/top	catalog/top	0	index		Home	The home page of this catalog	0													
+1099	catalog/top	catalog/top	0			Logout		0													1
+1098	catalog/top	catalog/top	0	login		Log In	Sign on!	0													0
+1097	catalog/top	catalog/top	0	index		Home	The home page of this catalog	0													
