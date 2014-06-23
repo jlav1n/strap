@@ -476,8 +476,11 @@ EOF
 	$opt->{ul_id} ||= $name;
 	$opt->{class} ||= 'nav navbar-nav';
 
+	my $id = $opt->{ul_id} ? q{ id="$opt->{ui_id}"} : '';
+	my $style = $opt->{style} ? q{ style="$opt->{style}"} : '';
+
 	push @out, <<EOF;
-<ul id="$opt->{ul_id}" class="$opt->{class}" style="$opt->{style}" $opt->{extra}>
+<ul$id class="$opt->{class}"$style $opt->{extra}>
 EOF
 
 #return Vend::Tags->uneval({ ref => $rows });
