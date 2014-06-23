@@ -38,6 +38,14 @@ Interchange directory (e.g. /usr/local/interchange). From there, run:
               should first run this command:
 			  	`rm [/path/to/interchange]/code/template_tag/standard/pay_cert*`
 
+Notes:
+------
+
+If you want stock alerting, you need to add a cronjob for the user of
+your catalog, to run the 'daily' Interchange job. Something like:
+
+	0 1 * * * /path/to/your/interchange/bin/interchange --runjobs=your_catalog_name=daily --quiet
+
 Some of the changes include:
 ----------------------------
 
