@@ -24,7 +24,7 @@ City, State, Zip: [value city], [value state]  [value zip]
 [if value b_address1]
     Billing Name: [value b_fname] [value b_lname]
  Billing Address: [value b_address1] [value b_address2]
-City, State, Zip: [value b_city][if value b_state], [value b_state]  [value b_zip][/if]
+City, State, Zip: [value b_city], [value b_state]  [value b_zip]
 [if value b_country] Billing Country: [value b_country][/if]
 [/if]
 
