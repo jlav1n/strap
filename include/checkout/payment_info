@@ -143,7 +143,7 @@
 	<div class="control-group" style="margin-top:1em">
 		<label for="mvcc" class="control-label">[error std_label="[L]Credit card number[/L]" name=mv_credit_card_valid required=1]</label>
 		<div class="controls">
-			<input type="text" name="mv_credit_card_number" id="mvcc" pattern="\d*" novalidate autocorrect="off" autocomplete="off" onchange="highlight_card(this.value)"[if variable MV_DEMO_MODE] value="4111 1111 1111 1111"[/if]>
+			<input type="text" name="mv_credit_card_number" id="mvcc" pattern="\d*" autocorrect="off" autocomplete="off" onchange="highlight_card(this.value)"[if variable MV_DEMO_MODE] value="4111 1111 1111 1111"[/if]>
 			<small class="help-inline">(spaces or dashes are OK)</small>
 			<div style="margin-top:.5em">
               [calc]
@@ -166,7 +166,7 @@
 	<div class="control-group">
 		<label for="cvv2" class="control-label">[error std_label="[L]Security code[/L]" name=mv_credit_card_cvv2 required=1]</label>
 		<div class="controls">
-			<input type="text" name="mv_credit_card_cvv2" id="cvv2" maxlength="4" style="width:3em" pattern="\d*" novalidate autocorrect="off">
+			<input type="text" name="mv_credit_card_cvv2" id="cvv2" maxlength="4" style="width:3em" pattern="\d*" autocorrect="off">
 			<span class="help-inline"><a href="#modalcvv" data-toggle="modal">where is it?</a></span>
 		</div>
 	</div>
