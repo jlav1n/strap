@@ -295,7 +295,7 @@ There was an error adding you to the customer table.
 [if value order_desk_entry]
 [try]
 	[tmpn tmp_compare][/tmpn]
-	[tmp tmp_username][data table=userdb col=username key="[value customer_id]"][/tmp]
+	[tmp tmp_username][data table=userdb col=usernick key="[value customer_id]"][/tmp]
 	[if !scratch tmp_username]
 		[calcn]
 			$Tag->tmp('tmp_pass');
