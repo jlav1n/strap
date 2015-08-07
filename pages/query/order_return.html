@@ -1,19 +1,11 @@
-[comment]
-ui_template: Yes
-ui_template_name: leftonly
-[/comment]
-
-[tmp members_only]1[/tmp]
 [tmp page_title]__COMPANY__ -- [L]Returns[/L][/tmp]
+[tmp members_only]1[/tmp]
 
 [control reset=1]
 
 [control-set]
-[component]search_box_small[/component]
-[/control-set]
-
-[control-set]
 [component]product_tree[/component]
+[output]left[/output]
 [/control-set]
 
 [control-set]
@@ -23,7 +15,6 @@ ui_template_name: leftonly
 [control reset=1]
 
 @_TOP_@
-
 <!-- BEGIN CONTENT -->
 
 [if session arg]
@@ -31,7 +22,6 @@ ui_template_name: leftonly
 [else]
 	[bounce page=member/returns]
 [/else]
-
 [/if]
 
 [value name=test_user
@@ -54,19 +44,17 @@ hide=1]
 
 [if scratch order_status eq shipped]
                     
-<p>[L ORDER_RETURN_PAR1]Please verify the information below and select the items you wish to return by checking the corresponding checkboxes and modifying the quantity as needed.[/L]</p>
+<p class="lead">[L ORDER_RETURN_PAR1]Please verify the information below and select the items you wish to return by checking the corresponding checkboxes and modifying the quantity as needed.[/L]</p>
 
 [loop list="[scratch arg]"]
-<TABLE BORDER=0>
+<table class="table">
 [html-table fr='class="contentbar1"']
 <B>[L]ORDER NUMBER[/L]	[scratch arg]
 <B>[L]Order Date[/L]	[loop-data transactions order_date]
 [/html-table]
-</TABLE>
+</table>
 
-<p>
-
-<TABLE BORDER=0 class="contentbar1">
+<table class="table">
 
 [perl products userdb]
 	sub get_download {
@@ -99,7 +87,7 @@ hide=1]
 		WHERE order_number = '[scratch arg]'
 		ORDER BY code
 	|
-]<input type="checkbox" name="return_items" value="[sql-param code]">	<input type="text" name="qty-[sql-param code]" size="3" value="[sql-param quantity]">	[sql-param sku]	[description [sql-param sku]]<BR>[if-sql-data orderline size][L]SIZE[/L]-->[sql-param size][/if-sql-data][if-sql-data orderline color] [L]COLOR[/L]-->[sql-param color][/if-sql-data][calc]
+]<input type="checkbox" name="return_items" value="[sql-param code]">	<input class="form-control" type="text" name="qty-[sql-param code]" size="3" value="[sql-param quantity]">	[sql-param sku]	[description [sql-param sku]]<BR>[if-sql-data orderline size][L]SIZE[/L]-->[sql-param size][/if-sql-data][if-sql-data orderline color] [L]COLOR[/L]-->[sql-param color][/if-sql-data][calc]
 return unless
 	q{[userdb function=check_file_acl mode=expire location="[sql-param sku]"]};
 	return get_download(q{[sql-param sku]});
@@ -107,18 +95,15 @@ return unless
 [/query]
 
 [/html-table]
-</TABLE>
+</table>
 
-<p>
-
-<table width="100%" cellpadding="2" cellspacing="2" border="0" align="center">
+<table class="table">
 <tr>
 	<td valign="top">
 	
-        	<table border="0" cellspacing="0" cellpadding="0" align="center">
+        	<table class="table">
                 <tr> 
-                	<td class="contentbar1"><b>[L]Contact Information[/L]</b></td>
-                        <td class="contentbar1">&nbsp;</td>
+                	<td colspan=2 class="contentbar1"><b>[L]Contact Information[/L]</b></td>
                 </tr>
                 <tr> 
                 	<td>[error name=fname std_label="[L]Company[/L]" required=1]</td>
@@ -148,13 +133,13 @@ return unless
 
 		<p>
 
-		<input type="submit" value="[L]Return Selected Items[/L]">
+		<input type="submit" value="[L]Return Selected Items[/L]" class="btn btn-default">
 		</form>
 	
 	</td>
 	<td valign="top">
 
-		<table align="right" cellpadding="0" cellspacing="0" border="0"> 
+		<table class="table"> 
 		[html-table interpolate=1 td="VALIGN=TOP"]
 			<DIV ALIGN=RIGHT>[L]Subtotal[/L]:	<DIV ALIGN=RIGHT>[currency][loop-data transactions subtotal][/currency]	 	
 			<DIV ALIGN=RIGHT>[L]Sales Tax[/L]:	<DIV ALIGN=RIGHT>[currency][loop-data transactions salestax][/currency]	 	
@@ -170,14 +155,12 @@ return unless
 
 [else]
 
-[L]You may only return items from orders that have been fully shipped.[/L] 
-[msg arg.0="<a href='[area member/service]'>" arg.1="</a>"]Please contact %sCustomer Service%s for assistance.[/msg]
-
+<p class="alert alert-danger">
+	[L]You may only return items from orders that have been fully shipped.[/L] 
+	[msg arg.0='<a class="alert-link" href="[area member/service]">' arg.1='</a>']Please contact %sCustomer Service%s for assistance.[/msg]
+</p>
 [/else]
 [/if]
 
-<BR CLEAR=ALL>
-
 <!-- END CONTENT -->
-
 @_BOTTOM_@

@@ -3,9 +3,6 @@
 
 [control reset=1]
 [control-set]
-	[component]search_box_small[/component]
-[/control-set]
-[control-set]
 	[component]cart_tiny[/component]
 	[output]right[/output]
 [/control-set]
@@ -65,25 +62,25 @@
 [/loop]
 
 	[L INDEX_PAR1]
-		<h1>Welcome to the Interchange Strap Store!</h1>
-		<p>This site is intended to get you started building
+		<h1>Welcome to __COMPANY__!</h1>
+
+		<p class="lead">This site is intended to get you started building
 		your own e-business site. Replace the stock graphics, products, 
 		and categories in this store to begin building your custom site.</p>
 		<p>Please note that any products purchased will not be delivered nor 
 		will the customer be billed. Any products found on this site are to 
 		be treated as fictional.
 		</p>[/L]
+
 		<p>View <a href="[area All-Products]">all products</a>.</p>
 
+[if var MV_DEMO_MODE]
 		<p>
 			  View a different layout for the page:<br>
 			  <a href="[area href=index form=|template=leftonly|]">Left column, right content</a><br>
 			  <a href="[area href=index form=|template=rightonly|]">Right column, left content</a><br>
 			  <a href="[area href=index form=|template=leftright|]">Right column, left column, center content</a><br>
 		</p>
-
-
-[if var MV_DEMO_MODE]
 		<p>[L]Generate test order to fill the sample order database[/L]: <a href="[area test_order]">[L]Do test order[/L]</a>.</p>
 [/if]
 

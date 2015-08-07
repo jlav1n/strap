@@ -1,11 +1,12 @@
-
-      <form action="[area search]" method=get id=top_search class="search-form navbar-search pull-right">
-      [form-session-id]
-	  <input type="hidden" name="mp" value="s">
-	  [if session browser =~ /MSIE/i]
-	  <input name="s" type="text" class="search-query" value="Search" onfocus="this.value=''">
-	  [else]
-	  <input name="s" type="search" class="search-query" placeholder="[L]Search[/L]">
-	  [/else]
-	  [/if]
-	  </form>
+	<form action="[area search]" method=get id=top_search class="navbar-form navbar-right" role="search">
+		[form-session-id]
+		<input type="hidden" name="mp" value="s">
+		<div class="form-group">
+		[if session browser =~ /MSIE/i]
+			<input name="s" type="text" class="form-control" value="Search" onfocus="this.value=''">
+		[else]
+			<input name="s" type="search" class="form-control" placeholder="Search">
+		[/else]
+		[/if]
+		</div>
+	</form>

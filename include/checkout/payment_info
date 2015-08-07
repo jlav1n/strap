@@ -1,29 +1,34 @@
 [tmp meta_footer]
 [scratch meta_footer]
-<div class="modal hide" id="modalcvv">
-	<div class="modal-header">
-		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-		<h3>Security code <small>(or "CVC" or "CVV")</small></h3>
-	</div>
-	<div class="modal-body">
-		<p>The CVV or security code is an extra security measure to ensure you have access to, or physical possession of the credit card. See below for how to find your security code:</p>
-		<table class="table table-bordered">
-		<tr>
-			<td>
-				<img src="visa_cvv.png" alt="Visa/MC CVV">
-				<h3>VISA &amp; MasterCard</h3>
-				<p>It is the last 3 digits after the credit card number on the back of the card in the signature area.</p>
-			</td>
-			<td>
-				<img src="amex_cvv.png" alt="AMEX CVV">
-				<h3>American Express</h3>
-				<p>The code is printed on the front of the card, above and to the right of the embossed card number.</p>
-			</td>
-		</tr>
-		</table>
-	</div>
-	<div class="modal-footer">
-		<button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Close</button>
+
+<div class="modal fade" id="modalcvv" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">Security code <small>(or "CVC" or "CVV")</small></h4>
+			</div>
+			<div class="modal-body">
+				<p>The CVV or security code is an extra security measure to ensure you have access to, or physical possession of the credit card. See below for how to find your security code:</p>
+				<table class="table table-bordered">
+				<tr>
+					<td>
+						<img src="visa_cvv.png" alt="Visa/MC CVV">
+						<h3>VISA &amp; MasterCard</h3>
+						<p>It is the last 3 digits after the credit card number on the back of the card in the signature area.</p>
+					</td>
+					<td>
+						<img src="amex_cvv.png" alt="AMEX CVV">
+						<h3>American Express</h3>
+						<p>The code is printed on the front of the card, above and to the right of the embossed card number.</p>
+					</td>
+				</tr>
+				</table>
+			</div>
+			<div class="modal-footer">
+				<button class="btn btn-primary" data-dismiss="modal">Close</button>
+			</div>
+		</div>
 	</div>
 </div>
 
@@ -140,11 +145,11 @@
 <div style="height:auto">
 <div id="credit_card" style="display:none">
     <!-- credit card information -->
-	<div class="control-group" style="margin-top:1em">
-		<label for="mvcc" class="control-label">[error std_label="[L]Credit card number[/L]" name=mv_credit_card_valid required=1]</label>
-		<div class="controls">
-			<input type="text" name="mv_credit_card_number" id="mvcc" pattern="\d*" autocorrect="off" autocomplete="off" onchange="highlight_card(this.value)"[if variable MV_DEMO_MODE] value="4111 1111 1111 1111"[/if]>
-			<small class="help-inline">(spaces or dashes are OK)</small>
+	<div class="form-group" style="margin-top:1em">
+		<label for="mvcc" class="col-sm-3 control-label">[error std_label="[L]Credit card number[/L]" name=mv_credit_card_valid required=1]</label>
+		<div class="col-sm-9 col-md-6 col-lg-4">
+			<input class="form-control" type="text" name="mv_credit_card_number" id="mvcc" pattern="\d*" novalidate autocorrect="off" autocomplete="off" onchange="highlight_card(this.value)"[if variable MV_DEMO_MODE] value="4111 1111 1111 1111"[/if]>
+			<small class="help-block">(spaces or dashes are OK)</small>
 			<div style="margin-top:.5em">
               [calc]
                 my $accepted = $Variable->{CREDIT_CARDS_ACCEPTED};
@@ -163,17 +168,17 @@
 			</div>
 		</div>
 	</div>
-	<div class="control-group">
-		<label for="cvv2" class="control-label">[error std_label="[L]Security code[/L]" name=mv_credit_card_cvv2 required=1]</label>
-		<div class="controls">
-			<input type="text" name="mv_credit_card_cvv2" id="cvv2" maxlength="4" style="width:3em" pattern="\d*" autocorrect="off">
-			<span class="help-inline"><a href="#modalcvv" data-toggle="modal">where is it?</a></span>
+	<div class="form-group">
+		<label for="cvv2" class="col-sm-3 control-label">[error std_label="[L]Security code[/L]" name=mv_credit_card_cvv2 required=1]</label>
+		<div class="col-sm-3 col-md-2">
+			<input class="form-control" type="text" name="mv_credit_card_cvv2" id="cvv2" maxlength="4" pattern="\d*" novalidate autocorrect="off">
+			<span class="help-block"><a href="#modalcvv" data-toggle="modal">where is it?</a></span>
 		</div>
 	</div>
-	<div class="control-group">
-		<label for="expiry" class="control-label">[error std_label="[L]Expiration date[/L]" name=mv_credit_card_exp_month required=1]</label>
-		<div class="controls">
-			<select name="mv_credit_card_exp_month" id="expiry" style="width:10em" title="[L]month[/L]">
+	<div class="form-inline form-group">
+		<label for="expiry" class="col-sm-3 control-label">[error std_label="[L]Expiration date[/L]" name=mv_credit_card_exp_month required=1]</label>
+		<div class="col-sm-9">
+			<select class="form-control" name="mv_credit_card_exp_month" id="expiry" title="[L]month[/L]">
 			[loop
 					option=mv_credit_card_exp_month
 					acclist=1
@@ -193,7 +198,7 @@
 			<option value="[loop-code]"> [loop-param label]
 			[/loop]
 			</select> &nbsp;/&nbsp;
-			<select name="mv_credit_card_exp_year" style="width:4em" title="[L]year[/L]">
+			<select class="form-control" name="mv_credit_card_exp_year" title="[L]year[/L]">
                 [comment]
                 This should always return the current year as the first, then
                 10 more years.
@@ -222,10 +227,10 @@
 		[msg arg.0="[handling cod]"]There will be a %s charge added for COD.[/msg]
 </div>
 <div id="online_check" style="display:none">
-	<div class="control-group" style="margin-top:1em">
-		<label for="check_accttype" class="control-label">[error name=check_accttype std_label="[L]Type of Account[/L]" required=1]</label>
-		<div class="controls">
-			<select name="check_accttype" id="check_accttype">
+	<div class="form-group" style="margin-top:1em">
+		<label for="check_accttype" class="col-sm-3 control-label">[error name=check_accttype std_label="[L]Type of Account[/L]" required=1]</label>
+		<div class="col-sm-9 col-md-6 col-lg-4">
+			<select class="form-control" name="check_accttype" id="check_accttype">
 			[loop
 				option=check_accttype
 				acclist=1
@@ -236,32 +241,32 @@ Business Checking=Business Checking|]
 			<option value="[loop-code]">[loop-param label]</option>
 			[/loop]
 			</select>
-			<small class="help-inline">(US-based accounts only)</small>
+			<small class="help-block">(US-based accounts only)</small>
 		</div>
 	</div>
-	<div class="control-group">
-		<label for="check_routing" class="control-label">[error name=check_routing std_label="[L]Routing #[/L]" required=1]</label>
-		<div class="controls">
-			<input type="text" name="check_routing" id="check_routing" value="[evalue check_routing]" maxlength=9>
-			<small class="help-inline">(9 digits)</small>
+	<div class="form-group">
+		<label for="check_routing" class="col-sm-3 control-label">[error name=check_routing std_label="[L]Routing #[/L]" required=1]</label>
+		<div class="col-sm-9 col-md-6 col-lg-4">
+			<input class="form-control" type="text" name="check_routing" id="check_routing" value="[evalue check_routing]" maxlength=9>
+			<small class="help-block">(9 digits)</small>
 		</div>
 	</div>
-	<div class="control-group">
-		<label for="check_account" class="control-label">[error name=check_account std_label="[L]Account #[/L]" required=1]</label>
-		<div class="controls">
-			<input type="text" name="check_account" id="check_account" value="[evalue check_account]">
+	<div class="form-group">
+		<label for="check_account" class="col-sm-3 control-label">[error name=check_account std_label="[L]Account #[/L]" required=1]</label>
+		<div class="col-sm-9 col-md-6 col-lg-4">
+			<input class="form-control" type="text" name="check_account" id="check_account" value="[evalue check_account]">
 		</div>
 	</div>
-	<div class="control-group">
-		<label for="check_bankname" class="control-label">[error name=check_bankname std_label="[L]Bank Name[/L]" required=1]</label>
-		<div class="controls">
-			<input type="text" name="check_bankname" id="check_bankname" value="[evalue check_bankname]">
+	<div class="form-group">
+		<label for="check_bankname" class="col-sm-3 control-label">[error name=check_bankname std_label="[L]Bank Name[/L]" required=1]</label>
+		<div class="col-sm-9 col-md-6 col-lg-4">
+			<input class="form-control" type="text" name="check_bankname" id="check_bankname" value="[evalue check_bankname]">
 		</div>
 	</div>
-	<div class="control-group">
-		<label for="check_acctname" class="control-label">[error name=check_acctname std_label="[L]Name on Account[/L]" required=1]</label>
-		<div class="controls">
-			<input type="text" name="check_acctname" id="check_acctname" value="[evalue check_acctname]">
+	<div class="form-group">
+		<label for="check_acctname" class="col-sm-3 control-label">[error name=check_acctname std_label="[L]Name on Account[/L]" required=1]</label>
+		<div class="col-sm-9 col-md-6 col-lg-4">
+			<input class="form-control" type="text" name="check_acctname" id="check_acctname" value="[evalue check_acctname]">
 		</div>
 	</div>
 	<p class="text-info">
@@ -269,16 +274,14 @@ Business Checking=Business Checking|]
 	</p>
 </div>
 <div id="purchase_order" style="display:none">
-	<div class="control-group" style="margin-top:1em">
-		<label class="control-label" style="white-space:nowrap"><b>[L]P.O. Information[/L]</b></label>
-		<div class="controls">
-		</div>
+	<div class="form-group" style="margin-top:1em">
+		<label class="col-sm-3 control-label" style="white-space:nowrap"><b>[L]P.O. Information[/L]</b></label>
 	</div>
 	[if !variable PO_ALWAYS]
-	<div class="control-group">
-		<label for="po_number" class="control-label">[error name=credit_limit_ok std_label="[L]PO Number[/L]" required=1]</label>
-		<div class="controls">
-			<input type="text" name="po_number" id="po_number" value="[evalue po_number]">
+	<div class="form-group">
+		<label for="po_number" class="col-sm-3 control-label">[error name=credit_limit_ok std_label="[L]PO Number[/L]" required=1]</label>
+		<div class="col-sm-9 col-md-6 col-lg-4">
+			<input class="form-control" type="text" name="po_number" id="po_number" value="[evalue po_number]">
 		</div>
 	</div>
 	[/if]

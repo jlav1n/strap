@@ -48,11 +48,13 @@ buttons:
 						fi=merchandising
 						sf=cross_category
 						se=[scratch cross_category]
+						ml=[control size 3]
 [else]
 						st=db
 						fi=merchandising
 						sf=featured
 						se=specials
+						ml=[control size 3]
 [/else]
 [/if]
 					"] [loop-code][/loop][/tmp]
@@ -63,7 +65,7 @@ buttons:
 						fi=merchandising
 						ra=yes
 						tf=times_ordered
-						ml=10
+						ml=[control size 3]
 					"] [loop-code][/loop][/tmp]
 [/if]
     [calc]
@@ -76,24 +78,21 @@ buttons:
 	[/calc]
 	<table class="table table-condensed table-bordered table-striped">
 		<caption>
-		[control name=banner default="[L]See also...[/L]"]
+			<b>[control name=banner default="[L]See also...[/L]"]</b>
 		</caption>
 		[table-organize embed=1 pretty=1 cols="[control cols 2]"]
 		[loop random="[scratch random]" list="[strip interpolate=1][scratch cross_codes][/strip]"]    
-			<TD class="txtc">
+			<TD class="text-center">
 				<a href="[area [loop-code]]">
 					[loop-description]<br>
 					[if-loop-field thumb][image src="thumb/[loop-field thumb]"]<br>[/if-loop-field]
 				</a>
 				[L]Our Price[/L]: <b>[loop-price]</b>
 				[if control buttons]
-					<div style="margin-top:5px;">
-						<a href="[area order [loop-code]]" class="btn btn-mini btn-buy">[L]Add to Cart[/L]</a>
-					</div>
+					<br><a href="[area order [loop-code]]" class="btn btn-xs btn-primary">[L]Add to Cart[/L]</a>
 				[/if]
 			</TD>
 		[/loop]
 		[/table-organize]
 	</table>
 <!-- END COMPONENT [control component cross_horizontal] -->
-	

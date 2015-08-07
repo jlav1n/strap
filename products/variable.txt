@@ -1,23 +1,18 @@
 code	Variable	pref_group
 ADDRESS	123 Main St.	Company
-BAR_LINK_TEMPLATE	<a href="$URL$" class="barlink">$ANCHOR$</a>	Template
 CART_UPSELL	0	Cart/Checkout
 CGIWRAP	__MVC_CGIWRAP__	Admin Control
 CGI_DIR	__MVC_CGIDIR__	Admin Control
 CGI_URL	__MVC_CGIURL__	Directories and Paths
-CHECKOUT_FORM_WIDTH	600	Cart/Checkout
-CHECKOUT_MAIL		Cart/Checkout
+CHECKOUT_MAIL	1	Cart/Checkout
 CHECKOUT_MAIL_LIST	1	Cart/Checkout
 CHECKOUT_PAGE	ord/country	Cart/Checkout
-CHECKOUT_PAYMENT_HEIGHT	120	Cart/Checkout
 CHECK_ACCEPTED	1	Payment
 CITY	Anywhere, OH 45056	Company
 COD_ACCEPTED	0	Payment
 COMPANY	__MVC_COMPANY__	Company
-CONTRAST	RED	Template
 CREDIT_CARDS_ACCEPTED	visa mc amex discover  	Payment
-CSS_CONTRAST	text-error	Template
-DECREMENT_INVENTORY	1	Order
+DECREMENT_INVENTORY	0	Order
 DEFAULT_COUNTRY	US	Shipping
 DEFAULT_LOCALE	en_US	Internationalization
 DEFAULT_PAYMENT_MODE	credit_card	Payment
@@ -35,7 +30,6 @@ GIFT_CERT_PERIOD	1 year	Payment
 GOOGLE_ANL_ID		Google
 IC_DIR	__MVC_VENDROOT__	Admin Control
 IMAGE_DIR	__MVC_IMAGEURL__	Directories and Paths
-JQUERY_LATEST	//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js	Admin Control
 LINKHOST	__MVC_LINKHOST__	Admin Control
 LINKMODE	__MVC_LINKMODE__	Admin Control
 LINKPORT	__MVC_LINKPORT__	Admin Control
@@ -57,7 +51,6 @@ MV_PAYMENT_VENDOR		Payment
 MYSQL	__MVC_MYSQL__	Database
 ORDERS_TO	__MVC_MAILORDERTO__	Order
 ORDER_ROUTES	log main copy_user	Order
-PAGE_EDITOR_STYLE	standard	Content Edit
 PASSWORD_RESET_CHECK_KEY	ChAnGeMe	General
 PGP_KEY		Encryption
 PGSQL	__MVC_PGSQL__	Database

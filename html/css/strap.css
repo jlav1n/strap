@@ -1,32 +1,9 @@
-.container-fluid {
-	padding-top: 20px;
+.masthead .img-responsive {
+	display:inherit;
 }
 
-.txtl {
-	text-align:left!important;
-}
-.txtr {
-	text-align:right!important;
-}
-.txtc {
-	text-align:center!important;
-}
-
-caption {
-	font-size: larger;
-	font-weight: bold;
-}
-
-.small    { font-size: 95% }
-.smaller  { font-size: 85% }
-.smallest { font-size: 70% }
-
-.large   { font-size: 110% }
-.larger  { font-size: 125% }
-.largest { font-size: 140% }
-
-.input-tiny {
-  width: 30px;
+.bg-primary a {
+	color:#fff;
 }
 
 .navbar .nav > li > a {

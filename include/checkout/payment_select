@@ -70,29 +70,31 @@ function visible (selnam) {
 [/calc]
 
 [if scratch num_ops > 1]
-<label for="mvop">
-	[L]Payment Method[/L]&thinsp;
-	<select name="mv_order_profile" id="mvop" onchange="visible()" class="input-medium">
-		[if scratch can_use_pay_cert]
-		<option value=pay_cert SELECTED>[L]Gift Certificate[/L]</option>
-		[/if]
-		[if variable CREDIT_CARDS_ACCEPTED]
-		<option [selected mv_order_profile credit_card] value="credit_card">[L]Credit Card[/L]</option>
-		[/if]
-		[if variable CHECK_ACCEPTED]
-		<option [selected mv_order_profile online_check] value="online_check">[L]Online Check[/L]</option>
-		[/if]
-		[if variable PO_ACCEPTED]
-		<option [selected mv_order_profile purchase_order] value="purchase_order">[L]Company P.O.[/L]</option>
-		[/if]
-		[if variable POSTAL_ACCEPTED]
-		<option [selected mv_order_profile postal] value="postal">[L]Postal Billing[/L]</option>
-		[/if]
-		[if variable COD_ACCEPTED]
-		<option [selected mv_order_profile cod] value="cod">[L]C.O.D.[/L]</option>
-		[/if]
-	</select>
-</label>
+<div class="form-group">
+	<label for="mvop" class="col-sm-3 control-label">[L]Payment Method[/L]</label>
+	<div class="col-sm-9 col-md-6 col-lg-4">
+		<select name="mv_order_profile" id="mvop" onchange="visible()" class="form-control">
+			[if scratch can_use_pay_cert]
+			<option value=pay_cert SELECTED>[L]Gift Certificate[/L]</option>
+			[/if]
+			[if variable CREDIT_CARDS_ACCEPTED]
+			<option [selected mv_order_profile credit_card] value="credit_card">[L]Credit Card[/L]</option>
+			[/if]
+			[if variable CHECK_ACCEPTED]
+			<option [selected mv_order_profile online_check] value="online_check">[L]Online Check[/L]</option>
+			[/if]
+			[if variable PO_ACCEPTED]
+			<option [selected mv_order_profile purchase_order] value="purchase_order">[L]Company P.O.[/L]</option>
+			[/if]
+			[if variable POSTAL_ACCEPTED]
+			<option [selected mv_order_profile postal] value="postal">[L]Postal Billing[/L]</option>
+			[/if]
+			[if variable COD_ACCEPTED]
+			<option [selected mv_order_profile cod] value="cod">[L]C.O.D.[/L]</option>
+			[/if]
+		</select>
+	</div>
+</div>
 [else]
 	[if scratch can_use_pay_cert]
 		<input type=hidden name=mv_order_profile value=pay_cert>
@@ -120,12 +122,12 @@ function visible (selnam) {
 [/if]
 
 [if scratch pay_cert_code]
-<div class="control-group">
-	<label class="control-label"><b>Gift certificates</b></label>
-	<div class="controls">
+<div class="form-group">
+	<label class="col-sm-3 control-label">[L]Gift Certificates[/L]</label>
+	<div class="col-sm-9">
 	[loop list="[scratch pay_cert_code]"]
 	[if-loop-data pay_certs amount > 0]
-	<label class="checkbox" for="use_pay_cert[loop-increment]">
+	<label class="checkbox-inline" for="use_pay_cert[loop-increment]">
 		<input type="checkbox" name="use_pay_cert" value="[loop-code]" id="use_pay_cert[loop-increment]" [checked name=use_pay_cert value="[loop-code]" multiple=1] onclick="this.form.submit()">
 		Apply gift certificate [loop-code] for [currency][loop-data pay_certs amount][/currency]
 	</label>

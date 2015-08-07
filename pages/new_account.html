@@ -4,9 +4,7 @@
 @_TOP_@
 <!-- BEGIN CONTENT -->
 
-<div class="row-fluid">
-<div class="span2">&nbsp;</div>
-<div class="span8">
+<div class="col-md-11 col-md-offset-1">
 
 <div class="page-header">
 <h1>[L]New Account[/L]</h1>
@@ -14,8 +12,8 @@
 
 [if session logged_in][bounce href="[area member/account]"][/if]
 [if !scratch new]
-	[if session failure]<div class="alert alert-error">[calc] delete $Session->{failure}[/calc]</div>[/if]
-	[edisplay show_var=0 class="unstyled alert alert-error"]
+	[if session failure]<div class="alert alert-danger">[calc] delete $Session->{failure}[/calc]</div>[/if]
+	[edisplay show_var=0]
 [else]
 [set new][/set]
 [/else]
@@ -47,39 +45,45 @@ mv_username=email_only
 <input type="hidden" name="mv_nextpage" value="@@MV_PAGE@@">
 <input type="hidden" name="destination" value="[cgi destination]">
 
-	<div class="control-group">
-        <label for="mv_username" class="control-label">[error filter=e name=mv_username std_label="[L]Your email[/L]"]:</label>
-		<div class="controls">
-			<input type="email" name="mv_username" id="mv_username" value="[value-extended name=mv_username]" autocapitalize="off" autocorrect="off">
-			<span class="help-inline">(please double-check)</span>
+	<div class="form-group">
+        <label for="mv_username" class="control-label col-sm-2">[error filter=e name=mv_username std_label="[L]Your email[/L]"]:</label>
+		<div class="col-sm-10 col-md-7 col-lg-5">
+			<input type="email" class="form-control" name="mv_username" id="mv_username" value="[value-extended name=mv_username]">
+			<small class="help-block">(please double-check)</small>
 		</div>
 	</div>
-	<div class="control-group">
-        <label for="mv_password" class="control-label">[error for=mv_password std_label="[L]Password[/L]"]:</label>
-		<div class="controls">
-			<input type="password" name="mv_password" id="mv_password" value="" autocomplete="off">
+	<div class="form-group">
+        <label for="mv_password" class="control-label col-sm-2">[error for=mv_password std_label="[L]Password[/L]"]:</label>
+		<div class="col-sm-10 col-md-7 col-lg-5">
+			<input type="password" class="form-control" name="mv_password" id="mv_password" value="">
 		</div>
 	</div>
-	<div class="control-group">
-        <label for="mv_verify" class="control-label">[error for=mv_verify std_label="[L]Verify Password[/L]"]:</label>
-		<div class="controls">
-			<input type="password" name="mv_verify" id="mv_verify" value="" autocomplete="off" oncopy="return false" onpaste="return false" oncut="return false">
-			[if config CookieLogin]
-				<label for="mv_cookie_password" class="checkbox muted small" style="margin-top:.5em">
-					<input type="checkbox" name="mv_cookie_password" id="mv_cookie_password" value="1" [checked mv_cookie_password 1]>
+	<div class="form-group">
+        <label for="mv_verify" class="control-label col-sm-2">[error for=mv_verify std_label="[L]Verify Password[/L]"]:</label>
+		<div class="col-sm-10 col-md-7 col-lg-5">
+			<input type="password" class="form-control" name="mv_verify" id="mv_verify" value="" autocomplete="off" oncopy="return false" onpaste="return false" oncut="return false">
+		</div>
+	</div>
+[if config CookieLogin]
+	<div class="form-group">
+		<div class="col-sm-10 col-sm-offset-2">
+			<div class="checkbox">
+				<label>
+					<input type="checkbox" name="mv_cookie_password" value="1" checked=checked>
 					[L]Remember me (uncheck if public terminal)[/L]
 				</label>
-			[/if]
+			</div>
 		</div>
 	</div>
-	<div class="form-actions">
-        <input type="submit" value="[L]Create Account[/L]" class="btn btn-primary">
+[/if]
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+			<input type="submit" value="[L]Create Account[/L]" class="btn btn-primary">
+		</div>
 	</div>
 </fieldset>
 </form>
 
-</div>
-<div class="span2">&nbsp;</div>
 </div>
 
 [tmp clear_errors][error all=1 comment="Clear errors"][/tmp]

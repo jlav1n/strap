@@ -1,8 +1,5 @@
 __PAGE_INIT__
-[output name=css]__CSS__[output name=trash]
-[output name=js_bottom]__JS_BOTTOM__[output name=trash]
-[output name=top_menu]__TOP_MENU__[output name=trash]
-[output name=top_search]__TOP_SEARCH__[output name=trash]
+[output name=trash]
 [component group=vertical output="[control output left]"]
 [component group=vertical output="[control output left]"]
 [component group=vertical output="[control output left]"]

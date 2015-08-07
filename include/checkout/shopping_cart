@@ -42,7 +42,7 @@
             [/if-item-field]
           </td>
           <td>
-            <input type="[if config FractionalItems]text[else]number[/else][/if]" name="[item-quantity-name]" value="[item-quantity]" class="span5">
+            <input type="[if config FractionalItems]text[else]number[/else][/if]" name="[item-quantity-name]" value="[item-quantity]" class="form-control">
           </td>
           <td style="text-align:right">
             [item-discount-price]
@@ -67,7 +67,7 @@
         <table style="margin:0 auto">
         <tr>
           <td>
-			[if items]<input type=submit value="[L]Recalculate[/L]" class=btn> &nbsp;[/if]
+			[if items]<input type=submit value="[L]Recalculate[/L]" class="btn btn-default"> &nbsp;[/if]
 			[if data session ship_message]
 		    [if session ship_message !~ /^No (match|zone)/]
 			  <br><br><b>[L]Note[/L]:</b> [data session ship_message]
@@ -105,7 +105,7 @@
 			  </td>
               <td style="text-align:right">
 				  [if scratch onepage]
-					  [shipping widget=select extra='id=ship_widget onchange="this.form.submit()"']
+					  [shipping widget=select extra='class="form-control id="ship_widget" onchange="this.form.submit()"']
 				  [else]
 					  [shipping]
 				  [/else]

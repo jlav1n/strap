@@ -8,15 +8,14 @@
 @_TOP_@
 <!-- BEGIN CONTENT -->
 
-<div class="row-fluid">
-<div class="span1">&nbsp;</div>
-<div class="span10">
+<div class="col-md-1">&nbsp;</div>
+<div class="col-md-10">
 
 [if !variable NO_TAX_POPUP]
 	[include include/checkout/tax_popup]
 [/if]
 
-[edisplay show_var=0 show_label=1 class="unstyled alert alert-error" keep=1]
+[edisplay show_var=0 show_label=1 keep=1]
 
 [set Check_billing]
 [if !cgi mv_same_billing]
@@ -52,23 +51,24 @@
 
 	[include include/checkout/billing_address]
 
-	<div class="form-actions">
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
 		<input type=button onclick="
 				this.form.mv_form_profile.value='';
 				this.form.mv_action.value='back';
 				this.form.mv_nextpage.value='ord/shipping';
 				this.form.submit();
 			"
-			value="[L]Back[/L]" class="btn">
+			value="[L]Back[/L]" class="btn btn-default">
 		<input type=submit value="[L]Continue checkout[/L]" class="btn btn-primary">
+		</div>
 	</div>
 
 </fieldset>
 </form>
 
 </div>
-<div class="span1">&nbsp;</div>
-</div>
+<div class="col-md-1">&nbsp;</div>
 
 [tmp clear_errors][error all=1 comment="Clear errors"][/tmp]
 

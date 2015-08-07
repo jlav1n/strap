@@ -13,8 +13,8 @@ show_categories:
 <!-- BEGIN COMPONENT [control component product_tree] -->
 
 <ul class="nav nav-pills nav-stacked">
-	<li class="nav-header">Products</li>
-	<li><a href="[area All-Products]">All</a></li>
+	<li class="navbar-header text-muted text-uppercase"><b>[L]Products[/L]</b></li>
+	<li><a href="[area All-Products]">[L]All[/L]</a></li>
 
 [if control show_categories]
 
@@ -25,10 +25,10 @@ show_categories:
 		</li>
 	[/sql-alternate]
 		<li class="dropdown">
-			<a class="dropdown-toggle" data-toggle="dropdown" href="#">[sql-code] <b class="caret"></b></a>
+			<a class="dropdown-toggle" data-toggle="dropdown" href="#">[sql-code] <span class="caret"></span></a>
 			[tmp grp][sql-filter string2uri][sql-code][/sql-filter][/tmp]
 			<ul class="dropdown-menu">
-				<li><a href="[area href='[scratch grp]']">All</a></li>
+				<li><a href="[area href='[scratch grp]']">[L]All[/L] [sql-code]</a></li>
 	[/sql-change grp]
 	[if-sql-param category]
 				<li><a href="[area href="[scratch grp]/[sql-filter string2uri][sql-pos 1][/sql-filter]"]">[sql-pos 1]</a></li>

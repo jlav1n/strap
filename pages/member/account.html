@@ -6,16 +6,14 @@
 @_TOP_@
 <!-- BEGIN CONTENT -->
 
-<div class="row-fluid">
-<div class="span1">&nbsp;</div>
-<div class="span10">
+<div class="col-md-11 col-md-offset-1">
 
 <h1>[L]Account Maintenance[/L]</h1>
 
 [update values]
 
-[edisplay class="unstyled alert alert-error" keep=1]
-[warnings auto=1 list_class="unstyled alert alert-success"]
+[edisplay keep=1]
+[wdisplay]
 
 [userdb function=get_billing_names]
 [userdb function=get_shipping_names]
@@ -44,18 +42,19 @@
 	[include include/checkout/mailing_status]
 		[comment] Reset value variable mail_list in order to be able to unsubscribe from ALL mailinglists.  [/comment]
 		[value name='mail_list' value='']
+	<br>
 </fieldset>
 <fieldset class="form-horizontal">
 	[include include/checkout/billing_address]
-</fieldset>
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+			<button type=submit class="btn btn-primary">[L]Save Account Info[/L]</button> 
+		</div>
+	</div>
 
-<div style="text-align:center" class="form-actions">
-	<input type=submit value="[L]Save Account Info[/L]" class="btn btn-primary">
-</div>
+</fieldset>
 </form>
 
-</div>
-<div class="span1">&nbsp;</div>
 </div>
 
 [tmp clear_errors][error all=1 comment="Clear errors"][/tmp]

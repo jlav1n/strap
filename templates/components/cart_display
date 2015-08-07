@@ -9,25 +9,26 @@ ui_label: Smaller cart for display in content area
 [/comment]
 <!-- BEGIN COMPONENT [control component cart_display] -->
 [if items]
-<center>
-  <table width="100%" border="0" cellspacing="0" cellpadding="3">
-		<tr class="titletab_small" valign=top>
-			<td colspan=6 class="titletab_small"> 
-				<b>&nbsp;[L]Your Cart[/L]:</b>
-			</td>
+  <table class="table table-condensed table-striped">
+  	<thead>
+		<tr>
+			<th colspan=6> 
+				[L]&nbsp;Your Cart[/L]:
+			</th>
 		</tr>
-		<TR class="titletab_small" VALIGN=TOP>
-                        <td align=center class="titletab_small">[L]Action[/L]</td>
-                        <td class="titletab_small">[L]SKU[/L]</td>
-                        <td class="titletab_small">[L]Description[/L]</td>
-                        <td align=center class="titletab_small">[L]Quantity[/L]</td>
-                        <td align=right class="titletab_small">[L]Price[/L]</td>
-                        <td align=right class="titletab_small">[L]Extension[/L]</td>
+		<TR>
+                        <th class="text-center">[L]Action[/L]</th>
+                        <th>[L]SKU[/L]</th>
+                        <th>[L]Description[/L]</th>
+                        <th class="text-center">[L]Quantity[/L]</th>
+                        <th class="text-right">[L]Price[/L]</th>
+                        <th class="text-right">[L]Extension[/L]</th>
 		</TR>
-	<TBODY>
+  	</thead>
+	<tbody>
 [item-list]
 
-<tr class="[item-alternate 2]cartdisplay[else]cartdisplay_alt[/else][/item-alternate]">
+<tr>
 	<td align=center valign=top>
 	  <a href="[area href="ord/basket"]" class="cartlink">[L]edit[/L]</A>
 	</TD>
@@ -44,10 +45,8 @@ ui_label: Smaller cart for display in content area
 </TR>
 
 [/item-list]
-</TBODY>
+</tbody>
 </table>
-</FORM>
-</center>
 [/if]
 
 <!-- END COMPONENT [control component cart_display] -->

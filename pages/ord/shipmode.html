@@ -6,11 +6,9 @@
 @_TOP_@
 <!-- BEGIN CONTENT -->
 
-<div class="row-fluid">
-<div class="span2">&nbsp;</div>
-<div class="span8">
+<div class="col-md-offset-2 col-md-8">
 
-[edisplay show_var=0 class="unstyled alert alert-error" keep=1]
+[edisplay show_var=0 keep=1]
 
 [set Check_shipmode]
 &fatal=no
@@ -31,7 +29,7 @@ mode_ok=mandatory Shipping type [shipping-desc] not valid for country [value cou
 mv_nextpage=ord/payment
 [/set]
 
-<form action="[area href="ord/finalize" secure=1]" method="POST">
+<form action="[area href="ord/finalize" secure=1]" method="POST" class="form-horizontal">
 <fieldset><legend>[L]Shipping selection[/L]</legend>
 [form-session-id]
 <input type=hidden name=mv_action        value=return>
@@ -67,46 +65,53 @@ mv_nextpage=ord/payment
 [/if]
 
 	<!-- total_weight=[scratch total_weight], num=[scratch num] -->
-	[shipping mode="[scratch tmp_shipmodes]" label=1 format='<label class=radio for="%M"><input type=radio name=mv_shipmode id="%M" value="%M"%C>%D (%F)</label>']
-
-	<div class="form-actions">
-		<input type=button onclick="
-				this.form.mv_form_profile.value='';
-				this.form.mv_action.value='back';
-				[if value mv_same_billing]
-				this.form.mv_nextpage.value='ord/shipping';
-				[else]
-				this.form.mv_nextpage.value='ord/billing';
-				[/else]
-				[/if]
-				this.form.submit();
-			"
-			class=btn
-			value="[L]Back[/L]"
-			>
-		<input type=submit value="[L]Continue checkout[/L]" class="btn btn-primary">
-
-		[calcn]
-			return unless my $sm = $Session->{ship_message};
-			my %msgs;
-			for(split /\./, $sm) {
-				next if /^No match/;
-				$msgs{$_} = 1;
-			}
-			$Session->{ship_message} = join '<br>', keys %msgs;
-			return;
-		[/calcn]
-		[if session ship_message]
-			<div style="margin:1em 0 0" class="alert alert-info">[calc]delete $Session->{ship_message};[/calc]</div>
-		[/if]
-
+	<div class="form-group">
+		<div class="col-sm-12">
+			[shipping
+				mode="[scratch tmp_shipmodes]"
+				label=1
+				format='<div class="radio"><label><input type=radio name=mv_shipmode value="%M"%C>%D (%F)</label></div>'
+			]
+		</div>
 	</div>
+
+	<div class="form-group">
+		<div class="col-sm-12">
+			<input type="button" onclick="
+					this.form.mv_form_profile.value='';
+					this.form.mv_action.value='back';
+					[if value mv_same_billing]
+					this.form.mv_nextpage.value='ord/shipping';
+					[else]
+					this.form.mv_nextpage.value='ord/billing';
+					[/else]
+					[/if]
+					this.form.submit();
+				"
+				class="btn btn-default"
+				value="[L]Back[/L]"
+				>
+			<input type=submit value="[L]Continue checkout[/L]" class="btn btn-primary">
+		</div>
+	</div>
+
+	[calcn]
+		return unless my $sm = $Session->{ship_message};
+		my %msgs;
+		for(split /\./, $sm) {
+			next if /^No match/;
+			$msgs{$_} = 1;
+		}
+		$Session->{ship_message} = join '<br>', keys %msgs;
+		return;
+	[/calcn]
+	[if session ship_message]
+		<div style="margin:1em 0 0" class="alert alert-info">[calc]delete $Session->{ship_message};[/calc]</div>
+	[/if]
 
 </fieldset>
 </form>
 
-</div>
-<div class="span2">&nbsp;</div>
 </div>
 
 <!-- END CONTENT -->

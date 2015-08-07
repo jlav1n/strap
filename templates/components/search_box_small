@@ -11,21 +11,21 @@ matches:
 	type: select
 
 [/comment]
+<!-- START COMPONENT [control component search_box_small] -->
 
-	<div class="row-fluid">
-	<br>
-      <form class="well form-search" action="[area search]" method=get>
+      <form class="well well-sm form-inline" action="[area search]" method=get>
       [form-session-id]
 		<input type="hidden" name="mp" value="s">
-	    <div class="input-prepend">
-	      <button type="submit" class="btn">[L]Search[/L]</button>	      
-	      <input type="search" class="search-query span8" NAME="s">
+	    <div class="input-group">
+	      <input type="search" class="form-control" placeholder="Search" name="s">
+			<div class="input-group-btn">
+			  <button type="submit" class="btn btn-info"><i class="glyphicon glyphicon-search"></i></button>
+			</div>
 	    </div>
 	    <small class="help-block">
 		   <a href="[area advancedsearch]">[L]Advanced Search[/L]</a>
 	    </small>
       </form>
-	</div>
 
 <!-- END COMPONENT [control component search_box_small] -->
 

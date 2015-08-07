@@ -8,15 +8,14 @@ ui_label: Small cart for left/right display
 [/comment]
 <!-- BEGIN COMPONENT [control component cart_tiny] -->
   [if items]
-  <table class="table table-striped table-condensed table-bordered">
+  <table class="table table-striped table-condensed">
   	<caption>
-	<i class="icon-shopping-cart"></i>
-	  <a href="[area ord/basket]">[L]Your Cart Contents[/L]</a>
+		<i class="glyphicon glyphglyphicon glyphicon-shopping-cart"></i> <a href="[area ord/basket]">[L]Your Cart Contents[/L]</a>
   	</caption>
   	<thead>
       <tr>
-		<th align=left>[L]Description[/L]</th>
-		<th align=right>[L]Quantity[/L]</th>
+		<th class="text-left">[L]Description[/L]</th>
+		<th class="text-right">[L]Quantity[/L]</th>
       </tr>
   	</thead>
   	<tbody>

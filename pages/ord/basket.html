@@ -5,12 +5,12 @@
 
 [control-set]
 [component]search_box_small[/component]
-[matches]10[/matches]
 [output]left[/output]
 [/control-set]
 
 [control-set]
 [component]product_tree[/component]
+[show_categories]1[/show_categories]
 [output]left[/output]
 [/control-set]
 
@@ -19,7 +19,7 @@
 [banner][L]See also[/L][/banner]
 [cross_codes][/cross_codes]
 [size]3[/size]
-[cols]2[/cols]
+[cols]1[/cols]
 [output]left[/output]
 [/control-set]
 
@@ -48,7 +48,7 @@
 [/else]
 [/if]
 
-<form action="[process secure=1]" method=POST name="basket">
+<form action="[process secure=1]" method=POST name="basket" class="form-horizontal">
 [form-session-id]
 <input type="hidden" name="mv_doit"      value="refresh">
 <input type="hidden" name="mv_orderpage" value="ord/basket">
@@ -58,12 +58,12 @@
 <table class="table table-striped">
 <thead>
 <tr>
-	<th style="text-align:center">[L]Remove[/L]</th>
+	<th class="text-right">[L]Remove[/L]</th>
 	<th>[L]SKU[/L]</th>
 	<th>[L]Description[/L]</th>
 	<th>[L]Quantity[/L]</th>
-	<th style="text-align:right">[L]Price[/L]</th>
-	<th style="text-align:right">[L]Extension[/L]</th>
+	<th class="text-right">[L]Price[/L]</th>
+	<th class="text-right">[L]Extension[/L]</th>
 </tr>
 </thead>
 <tbody>
@@ -94,7 +94,7 @@
 [/item-calc]
 
 <tr>
-	<td style="text-align:center">
+	<td class="text-center">
 		[if-item-param !mv_si]
 			<input type=checkbox name="[item-quantity-name]" onclick="this.form.action='[process]', this.form.submit()" value=0>
 		[else]&nbsp;[/else]
@@ -140,7 +140,7 @@
 				@ary = grep ! $in_basket{$_}, @ary;
 				return '' unless @ary;
 				my $out = q{
-					<blockquote>
+					<blockquote class="small">
 					  <i>[L]Customers who bought this item also bought[/L]:</i><br>
 				};
 				for(@ary) {
@@ -159,7 +159,7 @@
 			[set upsell_found][/set]
 			[loop list="[item-data merchandising upsell_to]"]
 			[if scratch upsell_found]
-				<blockquote>
+				<blockquote class="small">
 				<i>[L]Other items you may like[/L]:</i><br>
 				  [list]
 				  [loop-calc]
@@ -175,7 +175,7 @@
 		[/if]
 
 		[if-item-param !mv_si]
-			[table-organize cols=2 table=' class="table-bordered table-condensed" style="font-size:smaller"' pretty=1]
+			[table-organize cols=2 table=' class="table table-bordered table-striped table-condensed small"' pretty=1]
 				[item-options td=1 label=1 bold=1 price=1 blank-label="--select--"]
 			[/table-organize]
 		[/if-item-param]
@@ -183,23 +183,23 @@
 	</td>
 [input-filter name="[item-quantity-name]" op="nullselect digits_dot"][/input-filter]
 	<td>
-		<input type="[if config FractionalItems]text[else]number[/else][/if]" name="[item-quantity-name]" value="[item-quantity]" class="span5">
+		<input type="[if config FractionalItems]text[else]number[/else][/if]" name="[item-quantity-name]" value="[item-quantity]" class="form-control">
 	</td>
 [if discount [item-code]]
-	<td style="text-align:right">
+	<td class="text-right">
 	    [L]Regular price[/L] <STRIKE>[item-price]</STRIKE>
 	    <BR>
 	    <B>[L]Your price[/L]: [item-discount-price]<br>
 	    [L]You save[/L]: [item-difference]
 	</td>
-	<td style="text-align:right">
+	<td class="text-right">
 	    <strike>[item-subtotal]</strike><br>
 	    <B>[item-discount-subtotal]<BR>
 	    [L]You save[/L]: [item-discount]</b>
 	</td>
 [else]
-	<td style="text-align:right">[item-discount-price]</td>
-	<td style="text-align:right">[item-discount-subtotal]</td>
+	<td class="text-right">[item-discount-price]</td>
+	<td class="text-right">[item-discount-subtotal]</td>
 [/else]
 [/if]
 </tr>
@@ -213,26 +213,26 @@
 		&nbsp;
 	</td>
 	<td>
-		<input type="submit" value="[L]Recalculate[/L]" class="btn">
+		<input type="submit" value="[L]Recalculate[/L]" class="btn btn-default">
 	</td>
-	<td colspan="2" style="text-align:right">
+	<td colspan="2" class="text-right">
 		<table class="table-condensed" style="margin-left:auto">
 		<tr> 
-		  <td style="text-align:right;white-space:nowrap">[L]Shipping Weight[/L]:</td>
-		  <td style="text-align:right">[summary format="%s" total=1]</td>
+		  <td class="text-right" style="white-space:nowrap">[L]Shipping Weight[/L]:</td>
+		  <td class="text-right">[summary format="%s" total=1]</td>
 		</tr>
-		<tr class="info">
-		  <td style="text-align:right"><b>[L]Subtotal[/L]:</b></td>
-		  <td style="text-align:right"><b>[subtotal]</b></td>
+		<tr class="bg-info">
+		  <td class="text-right"><b>[L]Subtotal[/L]:</b></td>
+		  <td class="text-right"><b>[subtotal]</b></td>
 		</tr>
 		</table>
 	</td>
 </tr>
 <tr>
-	<td colspan="6" style="text-align:right">
+	<td colspan="6" class="text-right">
 		[button
 		  text="[L]Checkout now[/L]"
-		  class="btn btn-primary btn-large"
+		  class="btn btn-primary btn-lg"
 		  form=basket
 		]
 			mv_todo=return
@@ -244,7 +244,7 @@
 [/then]
 [else]
 	<tr>
-		<td style="text-align:center" colspan="6">
+		<td class="text-center" colspan="6">
 			<b>[L]No items at the moment.[/L]</b>
 		</td>
 	</tr>
