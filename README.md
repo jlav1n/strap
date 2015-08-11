@@ -34,17 +34,18 @@ Note: if you previously installed the "standard" template, you should
 
 ## Notes
 
-If you want stock alerting, you need to add a cronjob for the user of
-your catalog, to run the 'daily' Interchange job. Something like:
+* If you want stock alerting, you need to add a cronjob for the user of
+  your catalog, to run the 'daily' Interchange job. Something like:
 
   `0 1 * * * /path/to/your/interchange/bin/interchange --runjobs=your_catalog_name=daily --quiet`
 
-## Some of the changes include
-
-* Uses ISO-8859-1 charset by default, to avoid problems with UTF-8 and
-  recent Perls. You can easily re-enable UTF-8 by uncommenting the lines
-  in catalog.cfg. Things may become broken, such as this:
+* There may be problems with UTF-8 and recent Perls. You can disable
+  UTF-8 by commenting 2 lines in catalog.cfg, under "Encoding". For
+  instance, this is a known issue with UTF-8 enabled:
   	https://github.com/interchange/interchange/issues/84
+  If disabling, set an environment variable of `MINIVEND_DISABLE_UTF8` to `1`
+
+## Some of the changes include
 
 * Product Groups and Categories use the "ncheck" subroutine in
   catalog.cfg to allow pretty, SEO-friendly URLs, such as `/Tools/Hand-Saws`
