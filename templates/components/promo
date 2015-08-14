@@ -29,46 +29,46 @@ banner:
 [/comment]
 <!-- BEGIN COMPONENT [control component promo] -->
 
-<table class="well table table-condensed table-bordered">
-	<caption> 
-	  <h3>[control name=banner default="[L]Specials[/L]"]</h3>
-	</caption>
-		[tmp now][time fmt='%Y%m%d'][/tmp]
-		[query list=1
-			   sql=|
-				SELECT sku,timed_promotion,start_date,finish_date, blurb_begin, blurb_end
-				FROM [either]__UI_MERCH_TABLE__[or]merchandising[/either]
-				WHERE featured = '[control promo_type specials]'
-				and (timed_promotion <> 1 or 
-				(timed_promotion = 1 and start_date < "[scratch now]" and finish_date > "[scratch now]"))
-				limit [control matches 4]
-				|]
-			[table-organize embed=1 pretty=1 cols="[control cols 4]"]
-		[list]
-			<TD class="text-center" style="position:relative">
-				  [if-sql-param blurb_begin]
-					[sql-param blurb_begin]
-				  [else]
-					<a href="[area href="[sql-code]"]" class="crosstitle">
-					<b>[sql-data products description]</b><br>
-				  [/else]
-				  [/if-sql-param]
-				  [if-sql-data products thumb]
-					<img src="thumb/[sql-data products thumb]" height="80" border="0"></a><br>
-				  [/if-sql-data]
-					[L]Our Price[/L]: <b>[sql-data products price]</b>
-				  [if-sql-param blurb_end]
-					<a href="[area [sql-code]]">[sql-param blurb_end]</a>
-				  [else]
-                      [if control buttons]
-                                [b-link [sql-code]][L]More Info[/L][/b-link]
-                        [b-link order mv_order_item=[sql-code]][L]BUY NOW[/L][/b-link]
-                      [/if]
-				  [/else]
-				  [/if-sql-param]
-			</TD>
-		[/list]
-		[/table-organize]
-</table>
+<h4 class="text-muted">[control name=banner default="[L]Specials[/L]"]</h4>
+[tmp now][time fmt='%Y%m%d'][/tmp]
+[query list=1 sql=|
+	SELECT sku,timed_promotion,start_date,finish_date, blurb_begin, blurb_end
+	FROM [either]__UI_MERCH_TABLE__[or]merchandising[/either]
+	WHERE featured = '[control promo_type specials]'
+	AND (
+		timed_promotion <> 1 OR (
+			timed_promotion = 1 AND
+			start_date < "[scratch now]" AND
+			finish_date > "[scratch now]" )
+		)
+	LIMIT [control matches 4]
+| prefix="loop"]
+[div-organize embed=lc pretty=1 cols="12" filler_class="[control cols col-sm-3]"]
+[list]
+	<div class="[control cols col-sm-3]">
+		<DIV class="thumbnail">
+			<a href="[area [loop-code]]">[image src="thumb/[loop-field thumb]" default="thumb.gif"]</a>
+			<DIV class="caption text-center">
+				[if-loop-param blurb_begin]
+					[loop-param blurb_begin]
+				[else]
+					<h5><a href="[area [loop-code]]">[loop-description]</a></h5>
+				[/else]
+				[/if-loop-param]
+				<p>[L]Our Price[/L]: <b>[loop-price]</b></p>
+				[if-loop-param blurb_end]
+					<a href="[area [loop-code]]">[loop-param blurb_end]</a>
+				[else]
+					[if control buttons]
+						<a href="[area order [loop-code]]" class="btn btn-xs btn-primary">[L]Add to Cart[/L]</a>
+					[/if]
+				[/else]
+				[/if-loop-param]
+			</DIV>
+		</DIV>
+	</div>
+[/list]
+[/div-organize]
 [/query]
+
 <!-- END COMPONENT [control component promo] -->

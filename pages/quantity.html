@@ -1,90 +1,34 @@
-[comment]
-ui_template: Yes
-ui_template_name: leftonly
-[/comment]
-
 [tmp page_title]__COMPANY__ -- [L]Quantity Discounts[/L][/tmp]
 
 [control reset=1]
-
 [control-set]
-[component]search_box_small[/component]
+	[component]cart_tiny[/component]
 [/control-set]
-
 [control-set]
-[component]cart_tiny[/component]
+	[component]product_tree[/component]
 [/control-set]
-
-[control-set]
-[component]product_tree[/component]
-[/control-set]
-
 [control reset=1]
 
 @_TOP_@
-
 <!-- BEGIN CONTENT -->
-
-<br>
 
 [fly-list code="[data session arg]"]
 
-<table width="65%" border="0">
-	<tr class="contentbar1">
-		<td>
-			<big>[item-field category] : <b>[item-description]</b></big>
-		</td>
-	</tr>
-</table>
+<h2><small>[item-field category]:</small> [item-description]</h2>
 
-<table width="65%" border="0">
-	<tr valign="middle">
-		<td align="center">
-			<table border="0" cellspacing="5" align="center">
-				<tr>
-					<td valign="middle" align="center">
-	[if-item-field image]
-	  <img src="items/[item-field image]" alt="[item-description]">
-	[else]&nbsp;[/else]
-	[/if-item-field]
-					</td>
-					<td valign="middle" align="center">
-						<table border="0" cellpadding="3" cellspacing="0">
-							<tr>
-								<td align="center">&nbsp;</td>
-							</tr>
-							<tr>
-								<td colspan="2">
-									[either][item-field comment][or]&nbsp;[/either]
-								</td>
-							</tr>
-							<tr><td>&nbsp;</td></tr>
+[if-item-field image]
+  <img src="items/[item-field image]" alt="[item-description]" class="pull-left">
+[/if-item-field]
+
+<p>[item-field comment]</p>
 
 [seti count][data table=inventory column=quantity key='[item-code]'][/seti]
 [if scratch count eq 0]
-							<tr>
-								<td>
-									<b>[L]Out Of Stock[/L]</b>
-									<a href="[area function/stock_alert [item-code]]">[L]In Stock Notification[/L]</a>
-								</td>
-							</tr>
+	<p><b class="text-warning">[L]Out Of Stock[/L]</b> <a href="[area function/stock_alert [item-code]]">[L]In Stock Notification[/L]</a></p>
 [else]
-							<tr>
-								<td>
-									<b>[L]In Stock[/L]</b>
-								</td>
-							</tr>
+	<p class="text-success"><b>[L]In Stock[/L]</b></p>
 [/else]
 [/if]
-						</table>
-					</td>
-				</tr>
-			</table>
-		</td>
-	</tr>
-</table>
-
-<br>
 
 [set quantities]1 5 10 25[/set]
 			[calc]
@@ -98,13 +42,12 @@ ui_template_name: leftonly
 
 [loop prefix="part" list="[data session arg]"]
 
-<table width="65%" cellpadding="5">
+
 [table-organize
+			table="class='table table-bordered table-condensed'"
 			caption="Quantity Pricing"
 			rows="2"
 			columnize="[scratch qp_columns]"
-			tr.0=|class="contentbar1"|
-			tr.1=|class="maincontent"|
 			cols="[scratch qp_columns]"
 			]
 	<td>
@@ -118,12 +61,10 @@ ui_template_name: leftonly
 	</td>
 	[/loop]
 [/table-organize]
-</table>
 
 [/loop]
 
 [/fly-list]
 
 <!-- END CONTENT -->
-
 @_BOTTOM_@

@@ -10,17 +10,13 @@
 
 [control reset=1]
 [control-set]
-	[component]search_box_small[/component]
-	[output]left[/output]
-[/control-set]
-[control-set]
 	[component]product_tree[/component]
 	[output]left[/output]
 [/control-set]
 [control-set]
 	[component]random[/component]
 	[banner][L]Specials[/L][/banner]
-	[cols]1[/cols]
+	[cols]col-xs-6 col-sm-3 col-md-12[/cols]
 	[size]3[/size]
 	[output]right[/output]
 [/control-set]
@@ -109,15 +105,15 @@
 	return $Values->{more_link} ? $more : undef;
 [/calc]
 
-<div class="row">
 [search-list]
 
-	[item-change 1][condition][item-field category][/condition]
-	[item-alternate except_first]</div><div class="row">[/item-alternate]
-		[if-item-field category]
-			<h3>[either][value banner_text][or][item-field category][/either]</h3>
-		[/if-item-field]
-	[/item-change 1]
+[item-change 1][condition][item-field category][/condition]
+	[item-alternate except_first]</div>[/item-alternate]
+	[if-item-field category]
+		<h3>[either][value banner_text][or][item-field category][/either]</h3>
+	[/if-item-field]
+	<div class="row">
+[/item-change 1]
 
 	<div class="col-xs-6 col-sm-4 col-md-6 col-lg-3">
 		<div class="thumbnail">

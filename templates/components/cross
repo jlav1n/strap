@@ -76,23 +76,22 @@ buttons:
 		}
 		return;
 	[/calc]
-	<table class="table table-condensed table-bordered table-striped">
-		<caption>
-			<b>[control name=banner default="[L]See also...[/L]"]</b>
-		</caption>
-		[table-organize embed=1 pretty=1 cols="[control cols 2]"]
-		[loop random="[scratch random]" list="[strip interpolate=1][scratch cross_codes][/strip]"]    
-			<TD class="text-center">
-				<a href="[area [loop-code]]">
-					[loop-description]<br>
-					[if-loop-field thumb][image src="thumb/[loop-field thumb]"]<br>[/if-loop-field]
-				</a>
-				[L]Our Price[/L]: <b>[loop-price]</b>
-				[if control buttons]
-					<br><a href="[area order [loop-code]]" class="btn btn-xs btn-primary">[L]Add to Cart[/L]</a>
-				[/if]
-			</TD>
-		[/loop]
-		[/table-organize]
-	</table>
+	<h4 class="text-muted">[control name=banner default="[L]See also...[/L]"]</h4>
+	[div-organize embed=lc pretty=1 cols="12" filler_class="[control cols col-sm-3]"]
+	[loop random="[scratch random]" list="[strip interpolate=1][scratch cross_codes][/strip]"]    
+		<div class="[control cols col-sm-3]">
+			<DIV class="thumbnail">
+				<a href="[area [loop-code]]">[image src="thumb/[loop-field thumb]" default="thumb.gif"]</a>
+				<DIV class="caption text-center">
+					<h5><a href="[area [loop-code]]">[loop-description]</a></h5>
+					<p>[L]Our Price[/L]: <b>[loop-price]</b></p>
+					[if control buttons]
+						<a href="[area order [loop-code]]" class="btn btn-xs btn-primary">[L]Add to Cart[/L]</a>
+					[/if]
+				</DIV>
+			</DIV>
+		</div>
+	[/loop]
+	[/div-organize]
+
 <!-- END COMPONENT [control component cross_horizontal] -->

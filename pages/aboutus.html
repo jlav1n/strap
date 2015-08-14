@@ -2,24 +2,17 @@
 [tmp display_class]leftonly[/tmp]
 
 [control reset=1]
-
 [control-set]
-[component]search_box_small[/component]
+	[component]product_tree[/component]
+	[output]left[/output]
 [/control-set]
-
 [control-set]
-[component]product_tree[/component]
-[output]left[/output]
+	[component]promo[/component]
+	[matches]4[/matches]
+	[cols]col-xs-6 col-sm-3 col-md-4 col-lg-3[/cols]
+	[banner][L]Specials[/L][/banner]
+	[output]bottom[/output]
 [/control-set]
-
-[control-set]
-[component]promo[/component]
-[matches]4[/matches]
-[cols]4[/cols]
-[banner][L]Specials[/L][/banner]
-[output]bottom[/output]
-[/control-set]
-
 [control reset=1]
 
 @_TOP_@

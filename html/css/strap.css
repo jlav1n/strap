@@ -25,3 +25,10 @@ form[novalidate] select:focus:invalid {
         inset 0 1px 1px rgba(0, 0, 0, 0.075), 
         0 0 8px rgba(82, 168, 236, 0.6);
 }
+
+/* tablet */
+@media (min-width: 768px) and (max-width: 991px) {
+	.masthead .form-control {
+		width: 120px;
+	}
+}

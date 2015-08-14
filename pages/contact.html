@@ -1,38 +1,29 @@
 [tmp page_title]__COMPANY__ -- [L]Contact Us[/L][/tmp]
 
 [control reset=1]
-
 [control-set]
-[component]search_box_small[/component]
+	[component]product_tree[/component]
 [/control-set]
-
 [control-set]
-[component]product_tree[/component]
+	[component][/component]
 [/control-set]
-
-[control-set]
-[component][/component]
-[/control-set]
-
 [control-set]
 	[component]random[/component]
 	[banner][L]Random Component[/L][/banner]
 	[buttons]1[/buttons]
-	[cols]1[/cols]
+	[cols]col-xs-6 col-sm-3 col-md-12[/cols]
 	[matches]5[/matches]
 	[pool]100[/pool]
 	[size]5[/size]
 	[output]right[/output]
 [/control-set]
-
 [control-set]
-[component]promo[/component]
-[promo_type]new[/promo_type]
-[matches]3[/matches]
-[cols]3[/cols]
-[banner][L]New items[/L][/banner]
+	[component]promo[/component]
+	[promo_type]new[/promo_type]
+	[matches]3[/matches]
+	[cols]col-xs-6 col-sm-3 col-md-4 col-lg-3[/cols]
+	[banner][L]New items[/L][/banner]
 [/control-set]
-
 [control reset=1]
 
 @_TOP_@

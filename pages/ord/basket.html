@@ -2,27 +2,19 @@
 [tmp display_class]leftonly[/tmp]
 
 [control reset=1]
-
 [control-set]
-[component]search_box_small[/component]
-[output]left[/output]
+	[component]product_tree[/component]
+	[show_categories]1[/show_categories]
+	[output]left[/output]
 [/control-set]
-
 [control-set]
-[component]product_tree[/component]
-[show_categories]1[/show_categories]
-[output]left[/output]
+	[component]cross[/component]
+	[banner][L]See also[/L][/banner]
+	[cross_codes][/cross_codes]
+	[size]3[/size]
+	[cols]col-xs-6 col-sm-3 col-md-6[/cols]
+	[output]left[/output]
 [/control-set]
-
-[control-set]
-[component]cross[/component]
-[banner][L]See also[/L][/banner]
-[cross_codes][/cross_codes]
-[size]3[/size]
-[cols]1[/cols]
-[output]left[/output]
-[/control-set]
-
 [control reset=1]
 
 @_TOP_@

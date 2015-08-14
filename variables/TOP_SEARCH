@@ -1,4 +1,4 @@
-	<form action="[area search]" method=get id=top_search class="navbar-form navbar-right" role="search">
+	<form action="[area search]" method=get class="navbar-form navbar-right" role="search">
 		[form-session-id]
 		<input type="hidden" name="mp" value="s">
 		<div class="form-group">
