@@ -4,4 +4,13 @@
 	<p class="smaller muted">Portions copyright 2002-[time]%Y[/time] Interchange Development Group, freely redistributable under GPL</p>
 </div>
 
+[if variable MV_DEMO_MODE]
+<div style="position:fixed;z-index:1;bottom:0;left:0">
+	<span class="label label-info visible-xs-block">phone (xs)</span>
+	<span class="label label-info visible-sm-block">tablet (sm)</span>
+	<span class="label label-info visible-md-block">desktop (md)</span>
+	<span class="label label-info visible-lg-block">large desktop (lg)</span>
+</div>
+[/if]
+
 [if session admin]<div style="position:fixed;z-index:1;bottom:0;right:0" class="btn-group">[if scratch editable]<a class="btn btn-primary" href="[area href="admin/edit_page" form=|page_name=[var MV_PAGE global]|]">Edit page data</a>[/if]<a class="btn btn-info" href="[area admin]">Go to Admin</a></div>[/if]
