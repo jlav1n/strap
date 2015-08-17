@@ -1,5 +1,14 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="[var WWW_DIR]/js/jquery.equalheightcolumns.min.js"></script>
+<script>
+$(document).ready(function() {
+	$(".equal-height-container .equal-height-column").equalHeightColumns({
+		maxWidth: 1199,
+		checkHeight: 'innerHeight'
+	});
+});
+</script>
 
 [if var GOOGLE_ANL_ID]
 <!-- Google Analytics: set GOOGLE_ANL_ID to be your site's ID. -->
