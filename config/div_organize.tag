@@ -46,7 +46,7 @@ Table <CAPTION> container text, if any. Can be an array.
 
 Attributes for div table cells. Can be an array. ie could be col-md-6 if using 2 col
 
-=item tr
+=item row_attr
 
 Attributes for div table rows. Can be an array. typically would be class="row"
 
@@ -113,7 +113,7 @@ Need to experiment with this stuff, for div only.
 Also note, we should update current table organize with Bootstrap
 class considerations
 
-The C<tr>, C<td>, and C<caption> attributes can be specified with indexes;
+The C<row_attr>, C<td>, and C<caption> attributes can be specified with indexes;
 if they are, then they will alternate according to the modulus.
 
 The C<td> option array size should probably always equal the number of columns;
@@ -229,7 +229,7 @@ sub {
 ##Have not touched
 
 	my %attr;
-	for(qw/caption tr pre post/) {
+	for(qw/caption row_attr pre post/) {
 		if( ! $opt->{$_} ) {
 			#do nothing
 		}
@@ -299,10 +299,13 @@ sub {
 		$rmod = 0;
 		while(@cells) {
 			$out .= "\t" if $pretty;
-			$out .= qq{<div class="row"};
-			if($opt->{tr}) {
-				my $idx = $rmod % scalar(@{$attr{tr}});
-				$out .= " " . $attr{tr}[$idx];
+			$out .= qq{<div};
+			if($opt->{row_attr}) {
+				my $idx = $rmod % scalar(@{$attr{row_attr}});
+				$out .= " " . $attr{row_attr}[$idx];
+			}
+			else {
+				$out .= ' class="row"';
 			}
 			$out .= ">";
 			$out .= "\n\t\t" if $pretty;
