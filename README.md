@@ -22,8 +22,9 @@ Works best with Interchange version 5.8.1 or higher.
 
 ## Usage
 
-Clone the repository (or download the ZIP file and extract) to your
-Interchange directory (e.g. /usr/local/interchange). From there, run:
+Clone the repository (or download the ZIP file and extract, then rename
+"strap-master" to "strap") to your Interchange directory (e.g.
+/usr/local/interchange). From there, run:
 
   `bin/makecat --demotype=strap [your-catalog-name]`
 
